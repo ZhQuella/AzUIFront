@@ -1,6 +1,6 @@
 {
   "name": "az-ui-front",
-  "version": "2.13.2",
+  "version": "0.0.1",
   "description": "Az component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
