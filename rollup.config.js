@@ -13,7 +13,7 @@ import replace from "@rollup/plugin-replace";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 
-const name = "Element3";
+const name = "AZ";
 
 const createBanner = () => {
   return `/*!
@@ -65,7 +65,7 @@ function mergeConfig(baseConfig, configB) {
 }
 
 function createFileName(formatName) {
-  return `dist/element3-ui.${formatName}.js`;
+  return `dist/az-ui.${formatName}.js`;
 }
 
 // es-bundle
