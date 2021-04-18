@@ -3,7 +3,10 @@
 import ElButton from "../packages/button";
 import { version } from "../package.json";
 
-const components = [ElButton];
+
+const components = [
+  ElButton
+];
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts));
