@@ -12,7 +12,7 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.spec.js'],
   // 别名
   moduleNameMapper: {
-    '^element-ui(.*)$': '<rootDir>$1',
+    '^az-ui(.*)$': '<rootDir>$1',
     '^main(.*)$': '<rootDir>/src$1'
   }
 }

@@ -24,9 +24,9 @@
         [
           "module-resolver",
           {
-            "root": ["element-ui"],
+            "root": ["az-ui"],
             "alias": {
-              "element-ui/src": "element-ui/lib"
+              "az-ui/src": "az-ui/lib"
             }
           }
         ]

@@ -3,9 +3,7 @@
 import ElButton from "../packages/button";
 import { version } from "../package.json";
 
-const components = [
-  ElButton
-];
+const components = [ElButton];
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts));
@@ -16,21 +14,18 @@ const install = (app, opts = {}) => {
 
 const setupGlobalOptions = (opts = {}) => {
   return (app) => {
-    app.config.globalProperties.$ELEMENT = {
+    app.config.globalProperties.$AZCONFIG = {
       size: opts.size || "",
       zIndex: opts.zIndex || 2000,
     };
   };
 };
 
-const elementUI = {
+const azUI = {
   version,
   install,
 };
 
-export { 
-  ElButton, 
-  install 
-};
+export { ElButton, install };
 
-export default elementUI;
+export default azUI;
