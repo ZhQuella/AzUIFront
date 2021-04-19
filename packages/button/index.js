@@ -1,8 +1,8 @@
-import ElButton from "./Button.vue";
+import AzButton from "./Button.vue";
 
 /* istanbul ignore next */
-ElButton.install = function (app) {
-  app.component(ElButton.name, ElButton);
+AzButton.install = function (app) {
+  app.component(AzButton.name, AzButton);
 };
 
-export default ElButton;
+export default AzButton;
