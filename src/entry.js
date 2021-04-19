@@ -1,9 +1,9 @@
 // 用于构建时的入口
 // Basic
-import ElButton from "../packages/button";
+import AzButton from "../packages/button";
 import { version } from "../package.json";
 
-const components = [ElButton];
+const components = [AzButton];
 
 const install = (app, opts = {}) => {
   app.use(setupGlobalOptions(opts));
@@ -26,6 +26,6 @@ const azUI = {
   install,
 };
 
-export { ElButton, install };
+export { AzButton, install };
 
 export default azUI;
