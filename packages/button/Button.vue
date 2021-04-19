@@ -1,13 +1,13 @@
 <template>
   <button
-    class="el-button"
+    class="az-button"
     @click="handleClick"
     :disabled="buttonDisabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      type ? 'el-button--' + type : '',
-      buttonSize ? 'el-button--' + buttonSize : '',
+      type ? 'az-button--' + type : '',
+      buttonSize ? 'az-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,
@@ -17,7 +17,7 @@
       },
     ]"
   >
-    <i class="el-icon-loading" v-if="loading"></i>
+    <i class="az-icon-loading" v-if="loading"></i>
     <i :class="icon" v-if="icon && !loading"></i>
     <span v-if="$slots.default">
       <slot></slot>
@@ -28,7 +28,7 @@
 import { computed, inject, toRefs, unref } from "vue";
 
 export default {
-  name: "ElButton",
+  name: "AzButton",
 
   props: {
     type: {
@@ -88,10 +88,10 @@ const useButtonSize = (size) => {
 };
 
 const useButtonDisabled = (disabled) => {
-  const elForm = inject("elForm", {});
+  const azForm = inject("azForm", {});
 
   const buttonDisabled = computed(() => {
-    return disabled.value || unref(elForm.disabled);
+    return disabled.value || unref(azForm.disabled);
   });
 
   return buttonDisabled;

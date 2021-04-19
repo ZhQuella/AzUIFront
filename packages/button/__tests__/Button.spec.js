@@ -12,7 +12,7 @@ it("content", () => {
       },
     },
   });
-  expect(wrapper.findComponent({ name: "ElButton" }).text()).toContain(
+  expect(wrapper.findComponent({ name: "AzButton" }).text()).toContain(
     "默认按钮"
   );
 });
