@@ -1,4 +1,5 @@
-import MyButton from './Button.vue';
+import MyButton from '../../packages/button/Button.vue';
+import '../../packages/theme-chalk/src/index.scss';
 
 export default {
   title: 'Example/Button',
@@ -18,7 +19,7 @@ const Template = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: '<my-button v-bind="args">123</my-button>',
 });
 
 export const Primary = Template.bind({});
@@ -26,3 +27,16 @@ Primary.args = {
   primary: true,
   label: 'Button',
 };
+
+export const Primary2 = Template.bind({});
+Primary.args = {
+  primary: true,
+  label: 'Button',
+};
+
+export const Primary3 = Template.bind({});
+Primary.args = {
+  primary: true,
+  label: 'Button',
+};
+
