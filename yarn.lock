@@ -2096,6 +2096,11 @@
   dependencies:
     core-js "^3.8.2"
 
+"@storybook/preset-scss@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.nlark.com/@storybook/preset-scss/download/@storybook/preset-scss-1.0.3.tgz#8ac834545c642dada0f64f510ef08dfb882e9737"
+  integrity sha1-isg0VFxkLa2g9k9RDvCN+4gulzc=
+
 "@storybook/router@6.2.8":
   version "6.2.8"
   resolved "https://registry.nlark.com/@storybook/router/download/@storybook/router-6.2.8.tgz#70d95e66619ebdeb4da61e2fce930bcc53d45bd1"
@@ -4748,6 +4753,15 @@ clone-buffer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/clone-buffer/download/clone-buffer-1.0.0.tgz#e3e25b207ac4e701af721e2cb5a16792cac3dc58"
   integrity sha1-4+JbIHrE5wGvch4staFnksrD3Fg=
+
+clone-deep@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npm.taobao.org/clone-deep/download/clone-deep-4.0.1.tgz#c19fd9bdbbf85942b4fd979c84dcf7d5f07c2387"
+  integrity sha1-wZ/Zvbv4WUK0/ZechNz31fB8I4c=
+  dependencies:
+    is-plain-object "^2.0.4"
+    kind-of "^6.0.2"
+    shallow-clone "^3.0.0"
 
 clone-stats@^1.0.0:
   version "1.0.0"
@@ -11941,6 +11955,17 @@ sass-graph@2.2.5:
     scss-tokenizer "^0.2.3"
     yargs "^13.3.2"
 
+sass-loader@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npm.taobao.org/sass-loader/download/sass-loader-9.0.0.tgz?cache=0&sync_timestamp=1612804548821&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsass-loader%2Fdownload%2Fsass-loader-9.0.0.tgz#06f2624c8d9efc2d989997d351aaad2d46ee1b44"
+  integrity sha1-BvJiTI2e/C2YmZfTUaqtLUbuG0Q=
+  dependencies:
+    clone-deep "^4.0.1"
+    loader-utils "^2.0.0"
+    neo-async "^2.6.1"
+    schema-utils "^2.7.0"
+    semver "^7.3.2"
+
 saxes@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npm.taobao.org/saxes/download/saxes-5.0.1.tgz#eebab953fa3b7608dbe94e5dadb15c888fa6696d"
@@ -12118,6 +12143,13 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+shallow-clone@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/shallow-clone/download/shallow-clone-3.0.1.tgz#8f2981ad92531f55035b01fb230769a40e02efa3"
+  integrity sha1-jymBrZJTH1UDWwH7IwdppA4C76M=
+  dependencies:
+    kind-of "^6.0.2"
 
 shallowequal@^1.1.0:
   version "1.1.0"
