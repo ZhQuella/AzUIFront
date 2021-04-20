@@ -41,11 +41,19 @@
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "lint": "eslint --no-error-on-unmatched-pattern --ext .vue --ext .js --ext .jsx packages/**/ src/**/ --fix",
     "build:next": "rollup -c",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/vue3": "^6.2.8",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",
     "eslint": "^7.24.0",
     "eslint-formatter-pretty": "^4.0.0",
@@ -53,7 +61,8 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
     "husky": "^6.0.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "vue-loader": "^16.2.0"
   },
   "husky": {
     "hooks": {
