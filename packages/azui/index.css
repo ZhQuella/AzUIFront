@@ -1,0 +1,9 @@
+.abc a {
+  line-height: 20px; }
+
+.box {
+  height: 50px;
+  background: pink;
+  width: 50px; }
+  .box .a {
+    width: 200px; }
