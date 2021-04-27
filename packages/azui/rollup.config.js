@@ -24,7 +24,7 @@ const createBanner = () => {
   */`;
 };
 
-const extensions = [".js", ".ts", ".tsx"];
+const extensions = [".js", ".ts", ".tsx", ".scss"];
 
 const tsPlugin = ts({
   tsconfig: getPath("./tsconfig.json"),
@@ -50,7 +50,8 @@ const createBaseConfig = () => {
       scss({
         output: process.env.NODE_ENV === 'development'?
                   './dist/lib/index.css':
-                  false
+                  false,
+        watch: ["./src/styles"]
       })
     ],
     output: {
