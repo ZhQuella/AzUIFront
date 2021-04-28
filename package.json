@@ -11,8 +11,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "yarn workspace @azui/docs run dev",
     "dev": "yarn workspace azui run dev",
+    "start": "yarn workspace @azui/docs run dev",
+    "play": "yarn workspace @azui/play run dev",
     "test": "yarn workspace azui run test",
     "lint": "eslint --no-error-on-unmatched-pattern --ext .vue --ext .ts --ext .tsx packages/**/ --fix"
   },
