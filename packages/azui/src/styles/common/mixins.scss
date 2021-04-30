@@ -1,0 +1,43 @@
+@mixin button-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius
+) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin butto-type (
+  $--color-font,
+  $--color-hover,
+  $--color-disabled,
+  $--color-primary
+) {
+  color: $--color-font;
+  border-color: $--color-primary;
+  background-color: $--color-primary;
+  &:hover,
+  &:focus {
+    border-color: $--color-hover;
+    background-color: $--color-hover;
+  }
+  &:focus {
+    box-shadow: 0px 0px 0px 2px $--color-disabled;
+  }
+  &:active {
+    border-color: $--color-primary;
+    background-color: $--color-primary;
+  }
+  &.is-disabled {
+    background-color: $--color-disabled;
+    border-color: $--color-disabled;
+    cursor: not-allowed;
+  }
+  &.is-loading {
+    background-color: $--color-disabled;
+    border-color: $--color-disabled;
+    cursor: wait;
+  }
+}
