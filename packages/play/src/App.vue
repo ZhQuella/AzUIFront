@@ -1,5 +1,6 @@
 <template>
-  <az-button class="box">111</az-button>
+  <az-button>I can't touch you, you can touch me!</az-button><br/>
+  <button class="btn">1</button>
 </template>
 
 <script lang="ts">

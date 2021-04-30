@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@import "./common/var";
+@import "./common/mixins";
+
+.az-button {
+
+  &:active {
+    outline: 0;
+  }
+  & {
+    @include button-size(
+      $--button-padding-vertical, 
+      $--button-padding-horizontal, 
+      $--button-font-size,
+      $--border-radius-base
+    );
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: $--font-weight-normal;
+    border: $--border-base;
+    color: $--color-text-regular;
+    background-color: $--color-white;
+    text-align: center;
+    box-sizing: border-box;
+    transition: $--transition-time;
+    &:hover,
+    &:focus {
+      color: $--color-primary;
+      border-color: $--color-primary;
+      background-color: $--color-primary-shallow;
+    }
+    &:active {
+      box-shadow: 0px 0px 0px 2px $--color-primary-shallow;
+    }
+  }
+
+  &.az-button-primary {
+    @include butto-type(
+      $--color-white,
+      $--color-primary-hover,
+      $--color-primary-disabled,
+      $--color-primary
+    )
+  }
+
+  &.az-button-danger {
+    @include butto-type(
+      $--color-white,
+      $--color-danger-hover,
+      $--color-danger-disabled,
+      $--color-danger
+    )
+  }
+
+  &.az-button-warning {
+    @include butto-type(
+      $--color-white,
+      $--color-warning-hover,
+      $--color-warning-disabled,
+      $--color-warning
+    )
+  }
+
+  &.az-button-success {
+    @include butto-type(
+      $--color-white,
+      $--color-success-hover,
+      $--color-success-disabled,
+      $--color-success
+    )
+  }
+
+}
