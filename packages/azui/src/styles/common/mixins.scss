@@ -18,17 +18,14 @@
   color: $--color-font;
   border-color: $--color-primary;
   background-color: $--color-primary;
-  &:hover,
-  &:focus {
+  &:hover {
     border-color: $--color-hover;
     background-color: $--color-hover;
-  }
-  &:focus {
-    box-shadow: 0px 0px 0px 2px $--color-disabled;
   }
   &:active {
     border-color: $--color-primary;
     background-color: $--color-primary;
+    box-shadow: 0px 0px 0px 4px $--color-disabled;
   }
   &.is-disabled {
     background-color: $--color-disabled;
@@ -40,4 +37,9 @@
     border-color: $--color-disabled;
     cursor: wait;
   }
+}
+
+@mixin el-block {
+  display: block;
+  width: 100%;
 }

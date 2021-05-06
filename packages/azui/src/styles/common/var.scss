@@ -26,6 +26,8 @@ $--color-success: #67c23a;
 //  font
 $--font-weight-normal: 400 !default;
 
+$--font-size-base: 14px !default;
+
 // border
 $--border-radius-base: 4px 4px 4px 4px !default;
 $--border-width-base: 1px !default;
@@ -33,10 +35,28 @@ $--border-style-base: solid !default;
 $--border-color-hover: $--color-text-placeholder !default;
 $--border-base: $--border-width-base $--border-style-base $--border-color-base !default;
 
-//  padding
-$--button-padding-vertical: 10px !default;
-$--button-padding-horizontal: 15px !default;
-$--button-font-size: 14px !default;
+//  button
+$--button-padding-vertical: 12px !default;
+$--button-padding-horizontal: 20px !default;
+$--button-font-size: $--font-size-base !default;
+
+// button-medium
+$--button-medium-padding-vertical: 10px !default;
+$--button-medium-padding-horizontal: 15px !default;
+$--button-medium-font-size: $--font-size-base !default;
+$--button-medium-border-radius: $--border-radius-base !default;
+
+// button-small
+$--button-small-font-size: 12px !default;
+$--button-small-border-radius: $--border-radius-base !default;
+$--button-small-padding-vertical: 9px !default;
+$--button-small-padding-horizontal: 15px !default;
+
+// button-mini
+$--button-mini-font-size: 12px !default;
+$--button-mini-border-radius: $--border-radius-base !default;
+$--button-mini-padding-vertical: 7px !default;
+$--button-mini-padding-horizontal: 15px !default;
 
 //  other
 $--transition-time: .35s;
