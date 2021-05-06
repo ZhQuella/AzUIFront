@@ -1,6 +1,8 @@
 <template>
-  <az-button>I can't touch you, you can touch me!</az-button><br/>
-  <button class="btn">1</button>
+  <az-button size="small"
+            type="danger"
+            :loading="true"
+            disabled>I can't touch you, you can touch me!</az-button>
 </template>
 
 <script lang="ts">
