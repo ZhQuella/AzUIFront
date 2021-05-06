@@ -1,30 +1,43 @@
 <template>
-  <button class="az-button az-button--primary az-button--block">
-    <slot/>
-  </button>
-  <button class="az-button az-button--medium az-button--warning az-button--block">
-    <slot/>
-  </button>
-  <button class="az-button az-button--small az-button--danger">
-    <slot/>
-  </button>
-  <button class="az-button az-button--mini az-button--success">
+  <button class="az-button"
+          :class="classes">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
-import { App, defineComponent } from 'vue'
+import { App, defineComponent, toRefs } from 'vue';
 import vptypes from 'vptypes';
+
+import { userClasses } from "./use/useClasses";
 
 const AzButton = defineComponent({
   name: 'AzButton',
   props: {
-    size: vptypes.oneOfString(['large', 'small'])
+    size: vptypes.oneOfString([ 'big', 'medium', 'small', 'mini']),
+    type: vptypes.oneOfString([ 'primary', 'success', 'danger', 'warning', 'text']),
+    loading: vptypes.bool().def(false),
+    disabled: vptypes.bool().def(false)
   },
   emits: ['click'],
   setup(props, { emit, slots }) {
+    const {
+      size,
+      type,
+      loading,
+      disabled
+    } = toRefs(props)
+
+    const classes = userClasses({
+      size,
+      type,
+      loading,
+      disabled
+    });
     
+    return {
+      classes
+    }
   }
 })
 

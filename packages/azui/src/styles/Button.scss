@@ -91,6 +91,15 @@
     }
   }
 
+  &.az-button--big {
+    @include button-size(
+      $--button-big-padding-vertical,
+      $--button-big-padding-horizontal,
+      $--button-big-font-size,
+      $--button-big-border-radius
+    )
+  }
+
   &.az-button--medium {
     @include button-size(
       $--button-medium-padding-vertical,

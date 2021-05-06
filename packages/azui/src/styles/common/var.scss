@@ -25,8 +25,8 @@ $--color-success: #67c23a;
 
 //  font
 $--font-weight-normal: 400 !default;
-
 $--font-size-base: 14px !default;
+$--font-size-big-base: 16px !default;
 
 // border
 $--border-radius-base: 4px 4px 4px 4px !default;
@@ -39,6 +39,12 @@ $--border-base: $--border-width-base $--border-style-base $--border-color-base !
 $--button-padding-vertical: 12px !default;
 $--button-padding-horizontal: 20px !default;
 $--button-font-size: $--font-size-base !default;
+
+// button-big
+$--button-big-padding-vertical: 14px !default;
+$--button-big-padding-horizontal: 20px !default;
+$--button-big-font-size: $--font-size-base !default;
+$--button-big-border-radius: $--border-radius-base !default;
 
 // button-medium
 $--button-medium-padding-vertical: 10px !default;
