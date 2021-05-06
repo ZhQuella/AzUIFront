@@ -25,18 +25,20 @@
     text-align: center;
     box-sizing: border-box;
     transition: $--transition-time;
-    &:hover,
-    &:focus {
+    &:hover {
       color: $--color-primary;
       border-color: $--color-primary;
       background-color: $--color-primary-shallow;
     }
     &:active {
-      box-shadow: 0px 0px 0px 2px $--color-primary-shallow;
+      border-color: $--color-primary;
+      background-color: $--color-primary;
+      box-shadow: 0px 0px 0px 4px $--color-primary-shallow;
+      color: $--color-white;
     }
   }
 
-  &.az-button-primary {
+  &.az-button--primary {
     @include butto-type(
       $--color-white,
       $--color-primary-hover,
@@ -45,7 +47,7 @@
     )
   }
 
-  &.az-button-danger {
+  &.az-button--danger {
     @include butto-type(
       $--color-white,
       $--color-danger-hover,
@@ -54,7 +56,7 @@
     )
   }
 
-  &.az-button-warning {
+  &.az-button--warning {
     @include butto-type(
       $--color-white,
       $--color-warning-hover,
@@ -63,13 +65,61 @@
     )
   }
 
-  &.az-button-success {
+  &.az-button--success {
     @include butto-type(
       $--color-white,
       $--color-success-hover,
       $--color-success-disabled,
       $--color-success
     )
+  }
+
+  &.az-button--text {
+    border-color: transparent;
+    color: $--color-primary;
+    background-color: transparent;
+    &:hover {
+      color: $--color-primary-hover;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:active {
+      color: $--color-primary;
+      box-shadow: 0px 0px 0px 0px $--color-primary-shallow;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  &.az-button--medium {
+    @include button-size(
+      $--button-medium-padding-vertical,
+      $--button-medium-padding-horizontal,
+      $--button-medium-font-size,
+      $--button-medium-border-radius
+    )
+  }
+
+  &.az-button--small {
+    @include button-size(
+      $--button-small-padding-vertical,
+      $--button-small-padding-horizontal,
+      $--button-small-font-size,
+      $--button-small-border-radius
+    )
+  }
+
+  &.az-button--mini {
+    @include button-size(
+      $--button-mini-padding-vertical,
+      $--button-mini-padding-horizontal,
+      $--button-mini-font-size,
+      $--button-mini-border-radius
+    )
+  }
+
+  &.az-button--block {
+    @include el-block()
   }
 
 }
