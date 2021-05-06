@@ -3,7 +3,7 @@ module.exports = {
   roots: ["<rootDir>/src/packages"], //
   transform: {
     "^.+\\.vue$": "vue-jest", // vue单文件
-    "^.+\\js$": "babel-jest", // esm最新语法 import
+    "^.+\\\\.\[t|j\]s?$": "babel-jest", // esm最新语法 import
   },
   moduleFileExtensions: ["vue", "js", "json", "jsx", "ts", "tsx", "node"],
   testMatch: ["**/__tests__/**/*.spec.js"],

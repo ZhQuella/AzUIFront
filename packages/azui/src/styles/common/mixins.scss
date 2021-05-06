@@ -27,15 +27,21 @@
     background-color: $--color-primary;
     box-shadow: 0px 0px 0px 4px $--color-disabled;
   }
-  &.is-disabled {
-    background-color: $--color-disabled;
-    border-color: $--color-disabled;
-    cursor: not-allowed;
-  }
   &.is-loading {
     background-color: $--color-disabled;
     border-color: $--color-disabled;
     cursor: wait;
+    &:hover {
+      box-shadow: 0px 0px 0px 0px $--color-disabled;
+    }
+  }
+  &.is-disabled {
+    background-color: $--color-disabled;
+    border-color: $--color-disabled;
+    cursor: not-allowed;
+    &:hover {
+      box-shadow: 0px 0px 0px 0px $--color-disabled;
+    }
   }
 }
 
