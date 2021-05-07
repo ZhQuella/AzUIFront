@@ -1,15 +1,22 @@
 module.exports = {
-  testEnvironment: "jsdom", // 默认JSdom
-  roots: ["<rootDir>/src/packages"], //
+  preset: 'ts-jest',
+  testEnvironment: 'jest-environment-jsdom-sixteen',
+  setupFilesAfterEnv: ['./scripts/setupJestEnv.js'],
+  roots: ['<rootDir>'],
   transform: {
-    "^.+\\.vue$": "vue-jest", // vue单文件
-    "^.+\\\\.\[t|j\]s?$": "babel-jest", // esm最新语法 import
+    '^.+\\.vue$': 'vue-jest',
+    '^.+\\js$': 'babel-jest'
   },
-  moduleFileExtensions: ["vue", "js", "json", "jsx", "ts", "tsx", "node"],
-  testMatch: ["**/__tests__/**/*.spec.js"],
-  // 别名
+  moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+  testMatch: [
+    '**/tests/**/?(*.)+(test).[jt]s?(x)',
+    '**/tests/**/*spec.[jt]s?(x)',
+    '**/__tests__/**/*.spec.js'
+  ],
   moduleNameMapper: {
-    "^azui(.*)$": "<rootDir>$1",
-    "^main(.*)$": "<rootDir>/src$1",
+    '^az-ui(.*)$': '<rootDir>$1',
+    '^main(.*)$': '<rootDir>/src$1',
+    '^lodash-es$': 'lodash'
   },
-};
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!lodash-es)']
+}
