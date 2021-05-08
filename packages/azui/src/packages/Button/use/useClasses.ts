@@ -8,16 +8,16 @@ export const userClasses = ({
 }) => {
 
   const sizeClass = computed(() => {
-    return size.value;
+    return size?.value || "";
   });
 
   const typeClass = computed(() => {
-    return type.value;
+    return type?.value || "";
   });
 
   return computed(() => {
-    const size = sizeClass.value;
-    const type = typeClass.value;
+    const size = sizeClass?.value;
+    const type = typeClass?.value;
     return {
       [`az-button--${size}`]: Boolean(size),
       [`az-button--${type}`]: Boolean(type),
