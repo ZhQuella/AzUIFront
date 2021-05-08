@@ -27,7 +27,7 @@ const AzButton = defineComponent({
       loading,
       disabled
     } = toRefs(props)
-
+    console.log(size, "size.value")
     const classes = userClasses({
       size,
       type,
