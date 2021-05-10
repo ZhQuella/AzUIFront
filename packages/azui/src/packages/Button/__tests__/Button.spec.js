@@ -59,7 +59,7 @@ describe("Button classes names", () => {
     expect(wrapper.classes()).toContain(`is-disabled`)
   })
 
-    it("by button block", () => {
+  it("by button block", () => {
     const block = true;
     const wrapper = mount(Button, {
       props: {
