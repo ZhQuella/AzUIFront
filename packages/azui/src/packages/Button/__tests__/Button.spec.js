@@ -32,9 +32,9 @@ describe("Button classes names", () => {
   it("by props.type", () => {
     const type = 'success';
     const wrapper = mount(Button, {
-      props: [
+      props: {
         type
-      ]
+      }
     })
     expect(wrapper.classes()).toContain(`az-button--${type}`)
   })
@@ -42,7 +42,9 @@ describe("Button classes names", () => {
   it("by button loading", () => {
     const loading = true;
     const wrapper = mount(Button, {
-      props: [ loading ]
+      props: {
+        loading
+      }
     })
     expect(wrapper.classes()).toContain(`is-loading`)
   })
@@ -50,9 +52,21 @@ describe("Button classes names", () => {
   it("by button disabled", () => {
     const disabled = true;
     const wrapper = mount(Button, {
-      props: [ disabled ]
+      props: {
+        disabled
+      }
     })
     expect(wrapper.classes()).toContain(`is-disabled`)
+  })
+
+    it("by button block", () => {
+    const block = true;
+    const wrapper = mount(Button, {
+      props: {
+        block
+      }
+    })
+    expect(wrapper.classes()).toContain(`az-button--block`)
   })
 
 })
