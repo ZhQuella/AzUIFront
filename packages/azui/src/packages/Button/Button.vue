@@ -8,7 +8,6 @@
 <script lang="ts">
 import { App, defineComponent, toRefs } from 'vue';
 import vptypes from 'vptypes';
-
 import { userClasses } from "./use/useClasses";
 
 const AzButton = defineComponent({
@@ -16,8 +15,9 @@ const AzButton = defineComponent({
   props: {
     size: vptypes.oneOfString([ 'big', 'medium', 'small', 'mini']),
     type: vptypes.oneOfString([ 'primary', 'success', 'danger', 'warning', 'text']),
-    loading: vptypes.bool().def(false),
-    disabled: vptypes.bool().def(false)
+    loading: vptypes.oneOfType([vptypes.bool()]),
+    disabled: vptypes.oneOfType([vptypes.bool()]),
+    block: vptypes.oneOfType([vptypes.bool()])
   },
   emits: ['click'],
   setup(props, { emit, slots }) {
@@ -25,14 +25,15 @@ const AzButton = defineComponent({
       size,
       type,
       loading,
-      disabled
+      disabled,
+      block
     } = toRefs(props)
-    console.log(size, "size.value")
     const classes = userClasses({
       size,
       type,
       loading,
-      disabled
+      disabled,
+      block
     });
     
     return {
