@@ -5,7 +5,9 @@ export const userClasses = ({
   type,
   loading,
   disabled,
-  block
+  block,
+  round,
+  circle
 }) => {
 
   const sizeClass = computed(() => {
@@ -24,7 +26,9 @@ export const userClasses = ({
       [`az-button--${type}`]: Boolean(type),
       'is-loading':　loading.value,
       'is-disabled': disabled.value,
-      'az-button--block': block.value
+      'is--block': block.value,
+      'is--round': round.value,
+      'is--circle': circle.value
     }
   })
 }

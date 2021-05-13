@@ -59,14 +59,34 @@ describe("Button classes names", () => {
     expect(wrapper.classes()).toContain(`is-disabled`)
   })
 
-    it("by button block", () => {
+  it("by button round", () => {
+    const round = true;
+    const wrapper = mount(Button, {
+      props: {
+        round
+      }
+    })
+    expect(wrapper.classes()).toContain(`is--round`)
+  })
+
+  it("by button block", () => {
     const block = true;
     const wrapper = mount(Button, {
       props: {
         block
       }
     })
-    expect(wrapper.classes()).toContain(`az-button--block`)
+    expect(wrapper.classes()).toContain(`is--block`)
+  })
+
+  it("by button circle", () => {
+    const circle = true;
+    const wrapper = mount(Button, {
+      props: {
+        circle
+      }
+    })
+    expect(wrapper.classes()).toContain(`is--circle`)
   })
 
 })

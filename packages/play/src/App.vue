@@ -1,13 +1,26 @@
 <template>
-  <az-button size="small"
-            type="danger">I can't touch you, you can touch me!</az-button>
+  <az-button :type="type"
+            circle
+            size="big">12</az-button>
+  <az-button @click="onButtonClick">Click Me!</az-button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'App',
-  components: {}
+  setup(){
+    let type = ref("text")
+    function onButtonClick (){
+      type.value = "success";
+      console.log(type)
+    }
+
+    return {
+      type,
+      onButtonClick
+    }
+  }
 })
 </script>
