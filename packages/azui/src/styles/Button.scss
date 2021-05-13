@@ -4,9 +4,6 @@
 
 .az-button {
 
-  &:active {
-    outline: 0;
-  }
   & {
     @include button-size(
       $--button-padding-vertical, 
@@ -14,6 +11,7 @@
       $--button-font-size,
       $--border-radius-base
     );
+    outline: none;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -127,7 +125,7 @@
     )
   }
 
-  &.az-button--block {
+  &.is--block {
     @include el-block()
   }
 

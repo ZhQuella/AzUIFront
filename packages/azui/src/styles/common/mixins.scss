@@ -7,6 +7,13 @@
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
+  &.is--round {
+    border-radius: ($padding-vertical * 2 + $font-size) / 2;
+  }
+  &.is--circle {
+    padding: $padding-vertical;
+    border-radius: 50%;
+  }
 }
 
 @mixin butto-type (
