@@ -10,11 +10,30 @@ describe("Button Content", () => {
       global: {
         components: {
           Button,
-        },
+        }
       },
     });
     expect(wrapper.findComponent({ name: "AzButton" }).text()).toContain("默认按钮");
   });
+})
+
+describe("Button Attribute", () => {
+
+  it("by props.nativeType", () => {
+    const nativeType = "submit";
+    const wrapper = mount(Button, {
+      props: {
+        nativeType
+      }
+    });
+    expect(wrapper.attributes('type')).toBe(nativeType)
+  })
+
+  it("by props.nativeType default", () => {
+    const wrapper = mount(Button, {});
+    expect(wrapper.attributes('type')).toBe("button");
+  })
+
 })
 
 describe("Button classes names", () => {

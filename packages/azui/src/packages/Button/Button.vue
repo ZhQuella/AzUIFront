@@ -1,12 +1,15 @@
 <template>
   <button class="az-button"
           :class="classes"
-          @click="handleClick">
+          @click="handleClick"
+          :type="nativeType">
+    <i>11</i>
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
+//  todo loading图标以及显示逻辑没有添加
 import { App, defineComponent, toRefs } from 'vue';
 import vptypes from 'vptypes';
 import { userClasses } from "./use/useClasses";
@@ -17,6 +20,7 @@ const AzButton = defineComponent({
   props: {
     size: vptypes.oneOfString([ 'big', 'medium', 'small', 'mini']),
     type: vptypes.oneOfString([ 'primary', 'success', 'danger', 'warning', 'text']),
+    nativeType: vptypes.oneOfString(['button', 'submit', 'reset']).def('button'),
     loading: vptypes.oneOfType([vptypes.bool()]),
     disabled: vptypes.oneOfType([vptypes.bool()]),
     block: vptypes.oneOfType([vptypes.bool()]),
@@ -50,7 +54,6 @@ const AzButton = defineComponent({
 
     return {
       classes,
-
       handleClick
     }
   }

@@ -1,8 +1,5 @@
 <template>
-  <az-button :type="type"
-            circle
-            size="big">12</az-button>
-  <az-button @click="onButtonClick">Click Me!</az-button>
+  <az-button @click="onButtonClick" type="text" loading>Click Me!</az-button>
 </template>
 
 <script lang="ts">
@@ -18,7 +15,6 @@ export default defineComponent({
     }
 
     return {
-      type,
       onButtonClick
     }
   }
