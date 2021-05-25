@@ -87,6 +87,10 @@
       background-color: transparent;
       border-color: transparent;
     }
+    &.is-loading, &.is-disabled {
+      color: $--color-text-placeholder;
+      cursor: not-allowed;
+    }
   }
 
   &.az-button--big {
