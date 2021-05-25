@@ -10,6 +10,7 @@
 
 <script lang="ts">
 //  todo loading图标以及显示逻辑没有添加
+//  todo button-group 还没有写
 import { App, defineComponent, toRefs } from 'vue';
 import vptypes from 'vptypes';
 import { userClasses } from "./use/useClasses";
@@ -29,7 +30,7 @@ const AzButton = defineComponent({
     waves: vptypes.oneOfType([vptypes.bool()])
   },
   emits: ['click'],
-  setup(props, { emit, slots }) {
+  setup(props, { emit }) {
     const {
       size,
       type,

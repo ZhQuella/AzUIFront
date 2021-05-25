@@ -1,11 +1,12 @@
 import { App, Component } from "vue"; 
 import { version } from '../package.json';
 import "./styles/index.scss";
-import AzButton from './packages/Button';
-
+import { AzButton } from './packages/Button';
+import { AzRow } from "./packages/Grid";
 
 const components: Component[] = [
-  AzButton
+  AzButton,
+  AzRow
 ];
 
 const install = (app: App) => {
@@ -28,7 +29,8 @@ const AzUI = {
 
 export {
   version,
-  AzButton
+  AzButton,
+  AzRow
 };
 
 export default AzUI;
