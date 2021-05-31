@@ -32,4 +32,6 @@ const AzRow = defineComponent({
 AzRow.install = (app: App): void => {
   app.component(AzRow.name, AzRow)
 }
+
+export default AzRow;
 </script>
