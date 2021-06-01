@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 
-export const userClasses = ({
+export const useClasses = ({
   size,
   type,
   loading,
