@@ -13,8 +13,8 @@
 //  todo button-group 还没有写
 import { App, defineComponent, toRefs } from 'vue';
 import vptypes from 'vptypes';
-import { userClasses } from "./use/useClasses";
-import { useEvent } from "./use/userEvent";
+import { useClasses } from "./use/useClasses";
+import { useEvent } from "./use/useEvent";
 
 const AzButton = defineComponent({
   name: 'AzButton',
@@ -41,7 +41,7 @@ const AzButton = defineComponent({
       circle
     } = toRefs(props)
 
-    const classes = userClasses({
+    const classes = useClasses({
       size,
       type,
       loading,

@@ -1,5 +1,9 @@
 <template>
-  <az-button @click="onButtonClick" type="text" loading>Click Me!</az-button>
+  <az-row :gutter="20"
+          tag="ul">
+    <az-col>11</az-col>
+    <az-col>11</az-col>
+  </az-row>
 </template>
 
 <script lang="ts">

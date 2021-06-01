@@ -45,7 +45,7 @@ describe("Button classes names", () => {
         size
       }
     })
-    expect(wrapper.classes()).toContain(`az-button--${size}`)
+    expect(wrapper.classes()).toContain(`az-button--${size}`);
   })
 
   it("by props.type", () => {
