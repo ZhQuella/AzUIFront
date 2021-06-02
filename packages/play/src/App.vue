@@ -1,6 +1,7 @@
 <template>
   <az-row :gutter="20"
-          tag="ul">
+          tag="ul"
+          justify="space-between">
     <az-col>11</az-col>
     <az-col>11</az-col>
   </az-row>

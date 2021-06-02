@@ -1,5 +1,5 @@
 import Row from "../Row.vue";
-import Col from "../Col.vue";
+import Col from "../../Col/Col.vue";
 import { mount } from "@vue/test-utils";
 
 describe("Row Content", () => {

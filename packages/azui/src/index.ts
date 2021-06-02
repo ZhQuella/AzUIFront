@@ -3,7 +3,8 @@ import { version } from '../package.json';
 import "./styles/index.scss";
 import { AzButton } from './packages/Button';
 import { ButtonGroup } from "./packages/ButtonGroup";
-import { AzRow, AzCol } from "./packages/Grid";
+import { AzRow } from "./packages/Row";
+import { AzCol } from "./packages/Col";
 
 const components: Component[] = [
   AzButton,
