@@ -4,6 +4,14 @@
     <az-col>11</az-col>
     <az-col>11</az-col>
   </az-row>
+
+  <az-button-group size="mini" type="warning">
+    <az-button>1</az-button>
+    <az-button>2</az-button>
+    <az-button>3</az-button>
+    <az-button>4</az-button>
+  </az-button-group>
+
 </template>
 
 <script lang="ts">

@@ -7,15 +7,16 @@ export const useClasses = ({
   disabled,
   block,
   round,
-  circle
+  circle,
+  config
 }) => {
 
   const sizeClass = computed(() => {
-    return size?.value || "";
+    return size?.value || config?.size || "";
   });
 
   const typeClass = computed(() => {
-    return type?.value || "";
+    return type?.value || config?.type || "";
   });
 
   return computed(() => {
