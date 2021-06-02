@@ -3,18 +3,19 @@
           :class="classes"
           @click="handleClick"
           :type="nativeType">
-    <i>11</i>
+    <!--<i>11</i>-->
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
 //  todo loading图标以及显示逻辑没有添加
-//  todo button-group 还没有写
-import { App, defineComponent, toRefs } from 'vue';
+import { App, defineComponent, toRefs, inject } from 'vue';
 import vptypes from 'vptypes';
 import { useClasses } from "./use/useClasses";
 import { useEvent } from "./use/useEvent";
+
+const AzButtonConfig = "#AzButtonConfig";
 
 const AzButton = defineComponent({
   name: 'AzButton',
@@ -26,8 +27,7 @@ const AzButton = defineComponent({
     disabled: vptypes.oneOfType([vptypes.bool()]),
     block: vptypes.oneOfType([vptypes.bool()]),
     round: vptypes.oneOfType([vptypes.bool()]),
-    circle: vptypes.oneOfType([vptypes.bool()]),
-    waves: vptypes.oneOfType([vptypes.bool()])
+    circle: vptypes.oneOfType([vptypes.bool()])
   },
   emits: ['click'],
   setup(props, { emit }) {
@@ -39,7 +39,9 @@ const AzButton = defineComponent({
       block,
       round,
       circle
-    } = toRefs(props)
+    } = toRefs(props);
+
+    const config = inject(AzButtonConfig, {});
 
     const classes = useClasses({
       size,
@@ -48,7 +50,8 @@ const AzButton = defineComponent({
       disabled,
       block,
       round,
-      circle
+      circle,
+      config
     });
 
     const { handleClick } = useEvent({ emit })
