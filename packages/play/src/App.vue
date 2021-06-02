@@ -1,9 +1,27 @@
 <template>
   <az-row :gutter="20"
-          tag="ul"
+          tag="div"
           justify="space-between">
-    <az-col>11</az-col>
-    <az-col>11</az-col>
+    <az-col>
+      <div>
+        11
+      </div>
+    </az-col>
+    <az-col>
+      <div>
+        11
+      </div>
+    </az-col>
+    <az-col>
+      <div>
+        11
+      </div>
+    </az-col>
+    <az-col>
+      <div>
+        11
+      </div>
+    </az-col>
   </az-row>
 
   <az-button-group size="mini" type="warning">

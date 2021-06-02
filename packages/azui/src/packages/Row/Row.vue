@@ -1,8 +1,8 @@
 <template>
   <component class="az-row"
-          :style="styles"
-          :class="classes"
-          :is="tag">
+            :style="styles"
+            :class="classes"
+            :is="tag">
     <slot></slot>
   </component>
 </template>
@@ -17,7 +17,7 @@ import { useClasses } from "./use/useClass";
 const AzRow = defineComponent({
   name: "AzRow",
   props: {
-    gutter: vptypes.oneOfType([vptypes.number()]).def(0),
+    gutter: vptypes.oneOfType([vptypes.number(), vptypes.array()]).def(0),
     justify: vptypes.oneOfString([ 'start', 'end', 'center','space-between','space-around']).def('start'),
     align: vptypes.oneOfString([ 'top', 'middle', 'bottom']).def('top'),
     tag: vptypes.oneOfType([vptypes.string()]).def('div'),

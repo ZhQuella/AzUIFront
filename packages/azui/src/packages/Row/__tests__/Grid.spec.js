@@ -34,6 +34,61 @@ describe("Row.vue", () => {
     );
   });
 
+  it("gutter is null array", () => {
+    const wrapper = mount(Row, {
+      props: {
+        gutter: []
+      }
+    })
+    expect(wrapper.attributes("style")).toBe(
+      "margin: 0px;" 
+    );
+  });
+
+  it("gutter is array of one", () => {
+    const wrapper = mount(Row, {
+      props: {
+        gutter: [20]
+      }
+    })
+    expect(wrapper.attributes("style")).toBe(
+      "margin: -10px -10px -10px -10px;"
+    );
+  });
+
+  it("gutter is array of two", () => {
+    const wrapper = mount(Row, {
+      props: {
+        gutter: [20, 40]
+      }
+    })
+    expect(wrapper.attributes("style")).toBe(
+      "margin: -10px -20px -10px -20px;"
+    );
+  });
+
+  it("gutter is array of three", () => {
+    const wrapper = mount(Row, {
+      props: {
+        gutter: [20, 40, 10]
+      }
+    })
+    expect(wrapper.attributes("style")).toBe(
+      "margin: -20px -20px -10px -20px;"
+    );
+  });
+
+  it("gutter is array of fore", () => {
+    const wrapper = mount(Row, {
+      props: {
+        gutter: [20, 40, 10, 5]
+      }
+    })
+    expect(wrapper.attributes("style")).toBe(
+      "margin: -20px -40px -10px -5px;"
+    );
+  });
+
   it("justify of not", () => {
     const wrapper = mount(Row, {});
     expect(wrapper.classes()).toContain(`az-row--start`);
