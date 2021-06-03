@@ -8,11 +8,13 @@
 </template>
 
 <script lang="ts">
-import { App, defineComponent, toRefs } from 'vue';
+import { App, defineComponent, toRefs, provide, reactive } from 'vue';
 import vptypes from 'vptypes';
 
 import { useStyles } from "./use/useStyles";
 import { useClasses } from "./use/useClass";
+
+const AzRowConfig = "#AzRowConfig";
 
 const AzRow = defineComponent({
   name: "AzRow",
@@ -32,11 +34,16 @@ const AzRow = defineComponent({
     } = toRefs(props);
 
     const styles = useStyles(gutter);
+
     const classes = useClasses({
       justify,
       align,
       wrap
     });
+
+    provide(AzRowConfig, reactive({
+      gutter: props.gutter
+    }));
 
     return {
       gutter,
