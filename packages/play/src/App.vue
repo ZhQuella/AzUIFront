@@ -1,35 +1,5 @@
 <template>
-  <az-row :gutter="20"
-          tag="div"
-          justify="space-between">
-    <az-col>
-      <div>
-        11
-      </div>
-    </az-col>
-    <az-col>
-      <div>
-        11
-      </div>
-    </az-col>
-    <az-col>
-      <div>
-        11
-      </div>
-    </az-col>
-    <az-col>
-      <div>
-        11
-      </div>
-    </az-col>
-  </az-row>
-
-  <az-button-group size="mini" type="warning">
-    <az-button>1</az-button>
-    <az-button>2</az-button>
-    <az-button>3</az-button>
-    <az-button>4</az-button>
-  </az-button-group>
+  <az-row :gutter="20"><az-col :sm="{ span: 4, offset: 2 }" :md="8" :lg="{ span: 6, offset: 3 }"></az-col></az-row>
 
 </template>
 
