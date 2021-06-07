@@ -1,4 +1,4 @@
-import AzCol from "../Col/Col.vue";
+import AzCol from "./Col.vue";
 
 export {
   AzCol

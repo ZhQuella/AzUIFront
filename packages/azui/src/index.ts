@@ -5,12 +5,14 @@ import { AzButton } from './packages/Button';
 import { ButtonGroup } from "./packages/ButtonGroup";
 import { AzRow } from "./packages/Row";
 import { AzCol } from "./packages/Col";
+import { AzContainer } from "./packages/Container";
 
 const components: Component[] = [
   AzButton,
   ButtonGroup,
   AzRow,
-  AzCol
+  AzCol,
+  AzContainer
 ];
 
 const install = (app: App) => {
@@ -36,7 +38,8 @@ export {
   AzButton,
   ButtonGroup,
   AzRow,
-  AzCol
+  AzCol,
+  AzContainer
 };
 
 export default AzUI;
