@@ -1,6 +1,11 @@
 <template>
-  <az-container>
-    
+  <az-container height="500px">
+    <az-header>e-header</az-header>
+    <az-container>
+      <az-aside width="200px">e-aside</az-aside>
+      <az-main>e-main</az-main>
+    </az-container>
+    <az-footer>az-footer</az-footer>
   </az-container>
 </template>
 

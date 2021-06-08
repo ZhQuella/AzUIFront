@@ -1,0 +1,37 @@
+.az-container {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: 0;
+
+  &.is-horizontal {
+    flex-direction: column;
+    flex-direction: row;
+    > .az-container {
+      overflow-x: hidden;
+    }
+  }
+}
+
+.az-header {
+  flex: 0 0 auto;
+}
+
+.az-footer {
+  flex: 0 0 auto;
+}
+
+.az-aside {
+  position: relative;
+  min-width: 0;
+  transition: all 0.2s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: none;
+}
+
+.az-main {
+  display: block;
+  flex: auto;
+  min-height: 0;
+}
