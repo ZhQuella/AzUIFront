@@ -1,14 +1,36 @@
 <template>
-  <div>
-    132465
+  <div class="az-scroll-view__warp">
+    <div class="az-scroll-view-content"
+        ref="scrollViewContentRef">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { App, defineComponent } from "vue";
-
+import { App, defineComponent, ref, nextTick, reactive } from "vue";
+//  todo 需要进一步完善
 const AzScrollView = defineComponent({
-  name: "AzScrollView"
+  name: "AzScrollView",
+  setup(){
+    const data = reactive({
+
+    });
+
+    const scrollViewContentRef = ref<HTMLElement>();
+
+    nextTick(() => {
+      console.dir(scrollViewContentRef.value?.offsetHeight);
+      console.log(data);
+    });
+    
+    return {
+      scrollViewContentRef
+    }
+  },
+  mounted(){
+
+  }
 });
 
 AzScrollView.install = (app: App) => {
@@ -17,7 +39,3 @@ AzScrollView.install = (app: App) => {
 
 export default AzScrollView;
 </script>
-
-<style lang="scss" scoped>
-
-</style>

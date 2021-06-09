@@ -1,12 +1,7 @@
 <template>
-  <az-container height="500px">
-    <az-header>e-header</az-header>
-    <az-container>
-      <az-aside width="200px">e-aside</az-aside>
-      <az-main>e-main</az-main>
-    </az-container>
-    <az-footer>az-footer</az-footer>
-  </az-container>
+  <az-scroll-view>
+    <h1 v-for="item of 100" :key="item" class="content">{{ item }}</h1>
+  </az-scroll-view>
 </template>
 
 <script lang="ts">
@@ -27,3 +22,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.content {
+  width: 200vw;
+}
+</style>

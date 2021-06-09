@@ -1,0 +1,10 @@
+.az-scroll-view__warp {
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  .az-scroll-view-content {
+    background-color: green;
+    overflow: hidden;
+    width: auto;
+  }
+}
