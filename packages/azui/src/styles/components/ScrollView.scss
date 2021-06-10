@@ -7,4 +7,38 @@
     overflow: hidden;
     width: auto;
   }
+  .az-scroll-bar {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    .az-scroll-bar-content {
+      position: absolute;
+      background-color: yellowgreen;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .az-scroll-vertical-bar {
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 20px;
+    .az-scroll-bar-content {
+      height: 200px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+  .az-scroll-cross-bar {
+    left: 0px;
+    right: 20px;
+    bottom: 0px;
+    height: 20px;
+    .az-scroll-bar-content { 
+      width: 300px;
+      top: 0px;
+      bottom: 0px;
+    }
+  }
 }
