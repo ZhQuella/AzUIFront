@@ -22,3 +22,24 @@ describe("ScrollView Content", () => {
   });
 
 });
+
+describe("ScrollView Prop", () => {
+
+  it("scroll Size", async (done) => {
+    const size = "30px";
+    const wrapper = mount(ScrollView, {
+      props: {
+        size
+      }
+    });
+    await nextTick();
+    expect(wrapper.find(".az-scroll-vertical-bar").element.style.width).toEqual(size);
+    expect(wrapper.find(".az-scroll-vertical-bar").element.style.borderRadius).toEqual(size);
+
+    expect(wrapper.find(".az-scroll-cross-bar").element.style.height).toEqual(size);
+    expect(wrapper.find(".az-scroll-cross-bar").element.style.right).toEqual(size);
+    expect(wrapper.find(".az-scroll-cross-bar").element.style.borderRadius).toEqual(size);
+    done();
+  });
+
+});

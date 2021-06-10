@@ -24,6 +24,10 @@ export default defineComponent({
 </script>
 
 <style>
+* {
+  margin: 0px;
+  padding: 0px;
+}
 .content {
   width: 200vw;
 }
