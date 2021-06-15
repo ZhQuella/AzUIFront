@@ -1,61 +1,108 @@
 <template>
-  <div class="az-scroll-view__warp">
+  <div class="az-scroll-view__warp"
+      @mouseenter="onMouseenter"
+      @mouseleave="onMouseleave"
+      :style="warpStyle"
+      ref="clientRef">
     <!--竖向滚动条-->
-    <div class="az-scroll-bar az-scroll-vertical-bar"
-        :style="verticalStyle">
-      <div class="az-scroll-bar-content"></div>
-    </div>
+    <transition name="az-fade">
+      <div class="az-scroll-bar az-scroll-vertical-bar"
+          :style="verticalStyle"
+          v-show="isShowBar">
+        <div class="az-scroll-bar-content"
+            :style="verticalBarStyle"></div>
+      </div>
+    </transition>
     <!--横向滚动条-->
-    <div class="az-scroll-bar az-scroll-cross-bar"
-        :style="crossStyle">
-      <div class="az-scroll-bar-content"></div>
-    </div>
+    <transition name="az-fade">
+      <div class="az-scroll-bar az-scroll-cross-bar"
+          :style="crossStyle"
+          v-show="isShowBar">
+        <div class="az-scroll-bar-content"
+            :style="crossBarStyle"></div>
+      </div>
+    </transition>
     <div class="az-scroll-view-content"
-        ref="scrollViewContentRef">
-      <slot />
+        :style="containerStyle"
+        @scroll="onWarpScroll">
+      <div class="az-scroll__view"
+            ref="scrollViewContentRef">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { App, defineComponent, ref, nextTick, toRefs } from "vue";
+import { App, defineComponent, toRefs, reactive } from "vue";
 import vptypes from 'vptypes';
 
 import { useBarStyles } from "./use/useStyles";
+import { useEvent } from "./use/useEvent";
+import { useInit } from "./use/useInit";
 
 //  todo 需要进一步完善
 const AzScrollView = defineComponent({
   name: "AzScrollView",
   props: {
-    size: vptypes.string().def("10px")
+    size: vptypes.string().def("10px"),
+    showBar: vptypes.oneOfType([vptypes.bool()]).def(true),
+    height: vptypes.oneOfType([vptypes.number()]).def(600)
   },
   setup(props){
     const {
-      size
+      size,
+      showBar,
+      height
     } = toRefs(props);
 
-    // const data = reactive({
-
-    // });
-
-    const scrollViewContentRef = ref<HTMLElement>();
-
-    nextTick(() => {
-      // console.dir(scrollViewContentRef.value?.offsetHeight);
-      // console.log(data);
+    const config = reactive({
+      isEnterWarp: false,
+      barWidth: 0,
+      barHeight: 0,
+      warpInfo: {
+        offsetHeight: 0,
+        offsetWidth: 0
+      },
+      clientWidth: 0
     });
 
-    const {  
+    const { 
+      scrollViewContentRef,
+      clientRef
+    } = useInit({
+      config
+    });
+
+    const { onMouseenter, onMouseleave, onWarpScroll, isShowBar } = useEvent({config, showBar});
+
+    const {
       verticalStyle,
-      crossStyle
+      crossStyle,
+      warpStyle,
+      containerStyle,
+      verticalBarStyle,
+      crossBarStyle
     } = useBarStyles({
-      size
+      size,
+      height,
+      config
     });
     
     return {
       scrollViewContentRef,
+      clientRef,
       verticalStyle,
-      crossStyle
+      crossStyle,
+      warpStyle,
+      containerStyle,
+      verticalBarStyle,
+      crossBarStyle,
+
+      onWarpScroll,
+      onMouseenter,
+      onMouseleave,
+      isShowBar
     }
   }
 });

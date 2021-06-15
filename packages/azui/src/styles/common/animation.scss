@@ -1,0 +1,6 @@
+.az-fade-enter-active, .az-fade-leave-active {
+  transition: opacity .35s;
+}
+.az-fade-enter, .az-fade-leave-to {
+  opacity: 0;
+}

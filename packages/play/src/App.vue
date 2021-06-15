@@ -1,6 +1,6 @@
 <template>
   <az-scroll-view>
-    <h1 v-for="item of 100" :key="item" class="content">{{ item }}</h1>
+    <h1 v-for="item of 150" :key="item" class="content">{{ item }}</h1>
   </az-scroll-view>
 </template>
 
@@ -29,6 +29,6 @@ export default defineComponent({
   padding: 0px;
 }
 .content {
-  width: 200vw;
+  width: 20000px;
 }
 </style>
