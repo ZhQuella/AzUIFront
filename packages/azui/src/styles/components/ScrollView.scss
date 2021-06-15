@@ -1,11 +1,15 @@
 .az-scroll-view__warp {
   overflow: hidden;
   position: relative;
-  height: 400px;
   .az-scroll-view-content {
-    background-color: green;
-    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: scroll;
+    overflow-x: auto;
     width: auto;
+    margin-right: -17px;
+    background-color: green;
   }
   .az-scroll-bar {
     position: absolute;
@@ -25,7 +29,6 @@
     bottom: 0px;
     width: 20px;
     .az-scroll-bar-content {
-      height: 200px;
       left: 0px;
       right: 0px;
     }
@@ -35,8 +38,7 @@
     right: 20px;
     bottom: 0px;
     height: 20px;
-    .az-scroll-bar-content { 
-      width: 300px;
+    .az-scroll-bar-content {
       top: 0px;
       bottom: 0px;
     }
