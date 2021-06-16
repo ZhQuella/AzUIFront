@@ -20,8 +20,10 @@ export const useBarStyles = ({
   })
 
   const verticalBarStyle = computed(() => {
+    const proportion = height.value / config.warpInfo.offsetHeight;
     return {
-      height: `${100 * (height.value / config.warpInfo.offsetHeight)}%`
+      height: `${100 * proportion}%`,
+      top: `${config.scrollConfig.top * proportion}px`
     }
   })
 
@@ -34,8 +36,10 @@ export const useBarStyles = ({
   })
 
   const crossBarStyle = computed(() => {
+    const proportion = config.clientWidth / config.warpInfo.offsetWidth;
     return {
-      width: `${100 * (config.clientWidth / config.warpInfo.offsetWidth)}%`
+      width: `${100 * proportion}%`,
+      left: `${config.scrollConfig.left * proportion}px`
     }
   })
 

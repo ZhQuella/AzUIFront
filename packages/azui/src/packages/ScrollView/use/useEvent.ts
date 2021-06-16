@@ -18,7 +18,8 @@ export const useEvent = ({
   });
 
   const onWarpScroll = (event) => {
-    console.log(1, event);
+    config.scrollConfig.left = event.target.scrollLeft;
+    config.scrollConfig.top = event.target.scrollTop;
   }
 
   return {
