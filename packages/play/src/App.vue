@@ -1,6 +1,6 @@
 <template>
-  <az-scroll-view>
-    <h1 v-for="item of 150" :key="item" class="content">
+  <az-scroll-view size="5px">
+    <h1 v-for="item of 10" :key="item" class="content">
       {{item === 2?`transform-origin: 50% 50% 0 /这是默认值，中心点为起点
       transform-origin: 100% 100% 0 /以右下角为起点
       transform-origin: 0 0 0 /*以左上角为起点

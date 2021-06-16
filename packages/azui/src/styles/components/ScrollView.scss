@@ -38,7 +38,7 @@
       left: 0px;
       right: 0px;
       &:hover {
-        transform: scaleX(1.5) !important;
+        transform: scaleX(2) !important;
       }
     }
   }
@@ -51,7 +51,7 @@
       top: 0px;
       bottom: 0px;
       &:hover {
-        transform: scaleY(1.5);
+        transform: scaleY(2);
       }
     }
   }
