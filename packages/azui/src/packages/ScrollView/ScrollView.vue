@@ -10,7 +10,8 @@
           :style="verticalStyle"
           v-show="isShowBar">
         <div class="az-scroll-bar-content"
-            :style="verticalBarStyle"></div>
+            :style="verticalBarStyle"
+            @mousedown="onScrollBarMouseDown('vertical',$event)"></div>
       </div>
     </transition>
     <!--横向滚动条-->
@@ -19,7 +20,8 @@
           :style="crossStyle"
           v-show="isShowBar">
         <div class="az-scroll-bar-content"
-            :style="crossBarStyle"></div>
+            :style="crossBarStyle"
+            @mousedown="onScrollBarMouseDown('cross',$event)"></div>
       </div>
     </transition>
     <div class="az-scroll-view-content"
@@ -78,7 +80,13 @@ const AzScrollView = defineComponent({
       config
     });
 
-    const { onMouseenter, onMouseleave, onWarpScroll, isShowBar } = useEvent({config, showBar});
+    const { 
+      onMouseenter, 
+      onMouseleave, 
+      onWarpScroll, 
+      isShowBar,
+      onScrollBarMouseDown
+    } = useEvent({config, showBar, height});
 
     const {
       verticalStyle,
@@ -106,6 +114,7 @@ const AzScrollView = defineComponent({
       onWarpScroll,
       onMouseenter,
       onMouseleave,
+      onScrollBarMouseDown,
       isShowBar
     }
   }
