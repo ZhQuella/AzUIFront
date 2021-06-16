@@ -1,25 +1,31 @@
+@charset "UTF-8";
+@import "./common/var";
+
 .az-scroll-view__warp {
   overflow: hidden;
   position: relative;
   .az-scroll-view-content {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    position: relative;
     overflow: scroll;
     overflow-x: auto;
     width: auto;
     margin-right: -17px;
     background-color: green;
+    .az-scroll__view {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
   }
   .az-scroll-bar {
     position: absolute;
-    overflow: hidden;
     z-index: 1;
     .az-scroll-bar-content {
       position: absolute;
       background-color: yellowgreen;
       border-radius: 20px;
       cursor: pointer;
+      transition: transform $--transition-time;
     }
   }
 
@@ -31,6 +37,9 @@
     .az-scroll-bar-content {
       left: 0px;
       right: 0px;
+      &:hover {
+        transform: scaleX(2) !important;
+      }
     }
   }
   .az-scroll-cross-bar {
@@ -41,6 +50,9 @@
     .az-scroll-bar-content {
       top: 0px;
       bottom: 0px;
+      &:hover {
+        transform: scaleY(2);
+      }
     }
   }
 }

@@ -64,7 +64,11 @@ const AzScrollView = defineComponent({
         offsetHeight: 0,
         offsetWidth: 0
       },
-      clientWidth: 0
+      clientWidth: 0,
+      scrollConfig: {
+        left: 0,
+        top: 0
+      }
     });
 
     const { 
