@@ -26,7 +26,8 @@
     </transition>
     <div class="az-scroll-view-content"
         :style="containerStyle"
-        @scroll="onWarpScroll">
+        @scroll="onWarpScroll"
+        ref="content">
       <div class="az-scroll__view"
             ref="scrollViewContentRef">
         <slot />
@@ -70,7 +71,8 @@ const AzScrollView = defineComponent({
       scrollConfig: {
         left: 0,
         top: 0
-      }
+      },
+      isMouseDown: false
     });
 
     const { 
@@ -85,7 +87,8 @@ const AzScrollView = defineComponent({
       onMouseleave, 
       onWarpScroll, 
       isShowBar,
-      onScrollBarMouseDown
+      onScrollBarMouseDown,
+      content
     } = useEvent({config, showBar, height});
 
     const {
@@ -115,7 +118,8 @@ const AzScrollView = defineComponent({
       onMouseenter,
       onMouseleave,
       onScrollBarMouseDown,
-      isShowBar
+      isShowBar,
+      content
     }
   }
 });
