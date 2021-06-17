@@ -24,7 +24,7 @@ export const useBarStyles = ({
     proportion = Math.min(proportion, 1);
     return {
       height: `${100 * proportion}%`,
-      top: `${config.scrollConfig.top * proportion}px`
+      top: `${config.scrollConfig.top}px`
     }
   })
 
