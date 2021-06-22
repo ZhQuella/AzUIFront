@@ -4,7 +4,6 @@
       @mouseleave="onMouseleave"
       :style="warpStyle"
       ref="clientRef">
-    <!--竖向滚动条-->
     <transition name="az-fade">
       <div class="az-scroll-bar az-scroll-vertical-bar"
           :style="verticalStyle"
@@ -17,7 +16,6 @@
             }"></div>
       </div>
     </transition>
-    <!--横向滚动条-->
     <transition name="az-fade">
       <div class="az-scroll-bar az-scroll-cross-bar"
           :style="crossStyle"
