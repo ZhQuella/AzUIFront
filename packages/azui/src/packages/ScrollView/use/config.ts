@@ -5,13 +5,15 @@ export const BAR_MAP = {
     offset: "offsetTop",
     content: "offsetHeight",
     scroll: "scrollTop",
-    direction: "top"
+    direction: "top",
+    area: "clientHeight"
   },
   cross: {
     client: "clientX",
     offset: "offsetLeft",
     content: "offsetWidth",
     scroll: "scrollLeft",
-    direction: "left"
+    direction: "left",
+    area: "clientWidth"
   }
 };

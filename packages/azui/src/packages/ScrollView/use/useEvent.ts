@@ -2,7 +2,7 @@ import { computed, reactive, ref } from "vue";
 
 import { on, off } from "../../../utils/dom";
 
-// import { BAR_MAP } from "../use/config";
+import { BAR_MAP } from "../use/config";
 
 export const useEvent = ({
   config,
@@ -26,10 +26,10 @@ export const useEvent = ({
 
   const onWarpScroll = (event) => {
     if(config.isMouseDown) return;
-    let proportion = height.value / config.warpInfo.offsetHeight;
-    proportion = Math.min(proportion, 1);
-    config.scrollConfig.left = event.target.scrollLeft * proportion;
-    config.scrollConfig.top = event.target.scrollTop * proportion;
+    const proportionY = Math.min(height.value / config.warpInfo.offsetHeight,1);
+    const proportionX = Math.min(config.clientWidth / config.warpInfo.offsetWidth,1);
+    config.scrollConfig.left = event.target.scrollLeft * proportionX;
+    config.scrollConfig.top = event.target.scrollTop * proportionY;
   }
 
   const mouseDownConfig = reactive({
@@ -43,32 +43,34 @@ export const useEvent = ({
   })
 
   const mouseMoveDocumentHandler = (event) => {
-    let proportion = height.value / config.warpInfo.offsetHeight;
-    const { clientY } = event;
-    let top = clientY - (mouseDownConfig.clientY - mouseDownConfig.offsetTop);
-    top = Math.max(top, 0);
-    top = Math.min(height.value - mouseDownConfig.offsetHeight, top);
-    config.scrollConfig.top = top;
-    Reflect.set(content?.value || {}, "scrollTop", top / proportion);
+    const { type } = mouseDownConfig;
+    let contentOffset = type === "vertical"?height.value:config[BAR_MAP[type].area];
+    let proportion =  contentOffset / config.warpInfo[BAR_MAP[type].content];
+    let position = event[BAR_MAP[type].client] - (mouseDownConfig[BAR_MAP[type].client] - mouseDownConfig[BAR_MAP[type].offset]);
+    position = Math.max(position, 0);
+    position = Math.min(contentOffset - mouseDownConfig[BAR_MAP[type].content], position);
+    config.scrollConfig[BAR_MAP[type].direction] = position;
+    Reflect.set(content?.value || {}, BAR_MAP[type].scroll, position / proportion);
   }
 
   const mouseUpDocumentHandler = (event) => {
     off(document, 'mousemove', mouseMoveDocumentHandler);
     off(document, 'mouseup', mouseUpDocumentHandler);
     config.isMouseDown = false;
-    mouseDownConfig.clientY = mouseDownConfig.clientX = 0;
-    mouseDownConfig.offsetTop = mouseDownConfig.offsetLeft = 0;
+    mouseDownConfig[BAR_MAP[mouseDownConfig.type].client] = 0;
+    mouseDownConfig[BAR_MAP[mouseDownConfig.type].offset] = 0;
+    mouseDownConfig[BAR_MAP[mouseDownConfig.type].content] = 0;
     mouseDownConfig.type = "";
   }
-
+  
   const onScrollBarMouseDown = (type, event) => {
-    const { clientY, target } = event;
+    const { target } = event;
     window?.getSelection()?.removeAllRanges();
     config.isMouseDown = true;
     mouseDownConfig.type = type;
-    mouseDownConfig.clientY = clientY;
-    mouseDownConfig.offsetTop = target.offsetTop;
-    mouseDownConfig.offsetHeight = target.offsetHeight;
+    mouseDownConfig[BAR_MAP[type].client] = event[BAR_MAP[type].client];
+    mouseDownConfig[BAR_MAP[type].offset] = target[BAR_MAP[type].offset];
+    mouseDownConfig[BAR_MAP[type].content] = target[BAR_MAP[type].content];
     on(document, 'mousemove', mouseMoveDocumentHandler);
     on(document, 'mouseup', mouseUpDocumentHandler);
     document.onselectstart = () => false;
@@ -80,7 +82,8 @@ export const useEvent = ({
     isShowBar,
     onWarpScroll,
     onScrollBarMouseDown,
-    content
+    content,
+    mouseDownConfig
   }
 
 }

@@ -41,7 +41,7 @@ export const useBarStyles = ({
     proportion = Math.min(proportion, 1);
     return {
       width: `${100 * proportion}%`,
-      left: `${config.scrollConfig.left * proportion}px`
+      left: `${config.scrollConfig.left}px`
     }
   })
 
