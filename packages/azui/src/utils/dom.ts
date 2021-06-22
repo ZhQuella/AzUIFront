@@ -1,4 +1,4 @@
-type nodeType = HTMLElement | Document | Window;
+import { nodeType } from "./types";
 
 export const getAbsolutePosition = (node, attr = "offsetTop"): number => {
   let sum = 0;

@@ -54,13 +54,15 @@ const AzScrollView = defineComponent({
   props: {
     size: vptypes.string().def("10px"),
     showBar: vptypes.oneOfType([vptypes.bool()]).def(true),
-    height: vptypes.oneOfType([vptypes.number()]).def(600)
+    height: vptypes.oneOfType([vptypes.number()]).def(600),
+    noresize: vptypes.bool().def(false)
   },
   setup(props){
     const {
       size,
       showBar,
-      height
+      height,
+      noresize
     } = toRefs(props);
 
     const config = reactive({
@@ -81,9 +83,10 @@ const AzScrollView = defineComponent({
 
     const { 
       scrollViewContentRef,
-      clientRef
+      clientRef,
     } = useInit({
-      config
+      config,
+      noresize
     });
 
     const { 
