@@ -65,7 +65,17 @@ describe("Button classes names", () => {
         loading
       }
     })
-    expect(wrapper.classes()).toContain(`is-loading`)
+    expect(wrapper.classes()).toContain(`is-loading`);
+  })
+
+  it("by button loading show ele", () => {
+    const loading = true;
+    const wrapper = mount(Button, {
+      props: {
+        loading
+      }
+    })
+    expect(wrapper.find('.az-icon-loading').exists()).toBe(loading);
   })
 
   it("by button disabled", () => {

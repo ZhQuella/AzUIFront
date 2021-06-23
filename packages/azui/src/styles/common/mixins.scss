@@ -39,6 +39,7 @@
     border-color: $--color-disabled;
     cursor: wait;
     &:hover {
+      color: $--color-font;
       box-shadow: 0px 0px 0px 0px $--color-disabled;
     }
   }
@@ -47,6 +48,7 @@
     border-color: $--color-disabled;
     cursor: not-allowed;
     &:hover {
+      color: $--color-font;
       box-shadow: 0px 0px 0px 0px $--color-disabled;
     }
   }

@@ -34,8 +34,26 @@
       box-shadow: 0px 0px 0px 4px $--color-primary-shallow;
       color: $--color-white;
     }
+    [class*=az-icon-]+span {
+      margin-left: 5px;
+    }
+    &.is-loading {
+      cursor: wait;
+    }
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    &.is-loading, &.is-disabled {
+      color: $--color-text-placeholder;
+      border-color: $--color-border-color-lighter;
+      &:active, &:hover {
+        color: $--color-text-placeholder;
+        border-color: $--color-border-color-lighter;
+        background-color: $--color-white;
+        box-shadow: none;
+      }
+    }
   }
-
   &.az-button--primary {
     @include butto-type(
       $--color-white,

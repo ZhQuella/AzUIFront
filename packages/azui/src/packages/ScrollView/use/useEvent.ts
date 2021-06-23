@@ -7,7 +7,8 @@ import { BAR_MAP } from "../use/config";
 export const useEvent = ({
   config,
   showBar,
-  height
+  height,
+  emit
 }) => {
 
   const content = ref<HTMLElement>();
@@ -30,6 +31,7 @@ export const useEvent = ({
     const proportionX = Math.min(config.clientWidth / config.warpInfo.offsetWidth,1);
     config.scrollConfig.left = event.target.scrollLeft * proportionX;
     config.scrollConfig.top = event.target.scrollTop * proportionY;
+    emit("scroll", event);
   }
 
   const mouseDownConfig = reactive({
