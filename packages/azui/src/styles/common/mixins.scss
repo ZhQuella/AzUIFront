@@ -1,0 +1,60 @@
+@mixin button-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius
+) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  &.is--round {
+    border-radius: ($padding-vertical * 2 + $font-size) / 2;
+  }
+  &.is--circle {
+    padding: $padding-vertical;
+    border-radius: 50%;
+  }
+}
+
+@mixin butto-type (
+  $--color-font,
+  $--color-hover,
+  $--color-disabled,
+  $--color-primary
+) {
+  color: $--color-font;
+  border-color: $--color-primary;
+  background-color: $--color-primary;
+  &:hover {
+    border-color: $--color-hover;
+    background-color: $--color-hover;
+  }
+  &:active {
+    border-color: $--color-primary;
+    background-color: $--color-primary;
+    box-shadow: 0px 0px 0px 4px $--color-disabled;
+  }
+  &.is-loading {
+    background-color: $--color-disabled;
+    border-color: $--color-disabled;
+    cursor: wait;
+    &:hover {
+      color: $--color-font;
+      box-shadow: 0px 0px 0px 0px $--color-disabled;
+    }
+  }
+  &.is-disabled {
+    background-color: $--color-disabled;
+    border-color: $--color-disabled;
+    cursor: not-allowed;
+    &:hover {
+      color: $--color-font;
+      box-shadow: 0px 0px 0px 0px $--color-disabled;
+    }
+  }
+}
+
+@mixin el-block {
+  display: block;
+  width: 100%;
+}

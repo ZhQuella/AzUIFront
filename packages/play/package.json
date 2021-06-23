@@ -1,0 +1,21 @@
+{
+  "name": "@azui/play",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "tsrv test"
+  },
+  "dependencies": {
+    "azui": "0.0.1",
+    "vue": "^3.0.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.5",
+    "node-sass": "^5.0.0",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "vite": "^2.0.5"
+  }
+}

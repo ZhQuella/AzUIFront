@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import "./common/toods.scss";
+
+
+.az-row {
+  display: flex;
+  flex-flow: row wrap;
+  @include clearfix();
+  &::before,
+  &::after {
+    display: flex;
+  };
+
+  &--no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  };
+  &--end {
+    justify-content: flex-end;
+  };
+  &--center {
+    justify-content: center;
+  };
+  &--space-between {
+    justify-content: space-between;
+  }
+  &--space-around {
+    justify-content: space-around;
+  }
+
+  &--top {
+    align-items: flex-start;
+  }
+  &--middle {
+    align-items: center;
+  }
+  &--bottom {
+    align-items: flex-end;
+  }
+
+}
