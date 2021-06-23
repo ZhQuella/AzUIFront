@@ -1,6 +1,6 @@
 import ScrollView from "../ScrollView.vue";
 import { mount } from "@vue/test-utils";
-import { nextTick } from "vue";
+import { nextTick, h } from "vue";
 
 describe("ScrollView Content", () => {
   
@@ -40,6 +40,20 @@ describe("ScrollView Prop", () => {
     expect(wrapper.find(".az-scroll-cross-bar").element.style.right).toEqual(size);
     expect(wrapper.find(".az-scroll-cross-bar").element.style.borderRadius).toEqual(size);
     done();
+  });
+
+  it("scroll tag", () => {
+    const wrapper = mount(ScrollView, {
+      props: {
+        tag: 'ul'
+      },
+      slots: {
+        default: [1, 2, 3].map((item) => h('li', item))
+      }
+    })
+    expect(
+      wrapper.find('.az-scroll__view').element instanceof HTMLUListElement
+    ).toBeTruthy()
   });
 
 });

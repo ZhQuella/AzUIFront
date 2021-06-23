@@ -32,10 +32,11 @@
         :style="containerStyle"
         @scroll="onWarpScroll"
         ref="content">
-      <div class="az-scroll__view"
-            ref="scrollViewContentRef">
+      <component class="az-scroll__view"
+                ref="scrollViewContentRef"
+                :is="tag">
         <slot />
-      </div>
+      </component>
     </div>
   </div>
 </template>
@@ -48,16 +49,17 @@ import { useBarStyles } from "./use/useStyles";
 import { useEvent } from "./use/useEvent";
 import { useInit } from "./use/useInit";
 
-//  todo 需要进一步完善
 const AzScrollView = defineComponent({
   name: "AzScrollView",
   props: {
     size: vptypes.string().def("10px"),
     showBar: vptypes.oneOfType([vptypes.bool()]).def(true),
     height: vptypes.oneOfType([vptypes.number()]).def(600),
-    noresize: vptypes.bool().def(false)
+    noresize: vptypes.oneOfType([vptypes.bool()]).def(false),
+    tag: vptypes.string().def("div")
   },
-  setup(props){
+  emit:["scroll"],
+  setup(props, { emit }){
     const {
       size,
       showBar,
@@ -97,7 +99,7 @@ const AzScrollView = defineComponent({
       onScrollBarMouseDown,
       content,
       mouseDownConfig
-    } = useEvent({config, showBar, height});
+    } = useEvent({config, showBar, height, emit});
 
     const {
       verticalStyle,

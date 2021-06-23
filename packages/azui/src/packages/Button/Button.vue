@@ -3,17 +3,20 @@
           :class="classes"
           @click="handleClick"
           :type="nativeType">
-    <!--<i>11</i>-->
-    <slot/>
+    <i class="az-icon-loading"
+        v-if="loading"></i>
+    <span v-if="isShowContainer">
+      <slot/>
+    </span>
   </button>
 </template>
 
 <script lang="ts">
-//  todo loading图标以及显示逻辑没有添加
 import { App, defineComponent, toRefs, inject } from 'vue';
 import vptypes from 'vptypes';
 import { useClasses } from "./use/useClasses";
 import { useEvent } from "./use/useEvent";
+import { useEle } from "./use/useEle";
 
 const AzButtonConfig = "#AzButtonConfig";
 
@@ -25,12 +28,12 @@ const AzButton = defineComponent({
     nativeType: vptypes.oneOfString(['button', 'submit', 'reset']).def('button'),
     loading: vptypes.oneOfType([vptypes.bool()]),
     disabled: vptypes.oneOfType([vptypes.bool()]),
-    block: vptypes.oneOfType([vptypes.bool()]),
-    round: vptypes.oneOfType([vptypes.bool()]),
-    circle: vptypes.oneOfType([vptypes.bool()])
+    block: vptypes.oneOfType([vptypes.bool()]).def(false),
+    round: vptypes.oneOfType([vptypes.bool()]).def(false),
+    circle: vptypes.oneOfType([vptypes.bool()]).def(false)
   },
   emits: ['click'],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const {
       size,
       type,
@@ -54,11 +57,18 @@ const AzButton = defineComponent({
       config
     });
 
-    const { handleClick } = useEvent({ emit })
+    const { isShowContainer } = useEle({
+      slots,
+      loading,
+      circle
+    })
+
+    const { handleClick } = useEvent({ emit, loading, disabled });
 
     return {
       classes,
-      handleClick
+      handleClick,
+      isShowContainer
     }
   }
 })
