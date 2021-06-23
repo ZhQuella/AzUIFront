@@ -1,0 +1,58 @@
+@charset "UTF-8";
+@import "./common/var";
+
+.az-scroll-view__warp {
+  overflow: hidden;
+  position: relative;
+  .az-scroll-view-content {
+    position: relative;
+    overflow: scroll;
+    overflow-x: auto;
+    width: auto;
+    margin-right: -17px;
+    .az-scroll__view {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
+  .az-scroll-bar {
+    position: absolute;
+    z-index: 1;
+    .az-scroll-bar-content {
+      position: absolute;
+      background-color: $--scroll-bar-color;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform $--transition-time;
+    }
+  }
+
+  .az-scroll-vertical-bar {
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 20px;
+    .az-scroll-bar-content {
+      left: 0px;
+      right: 0px;
+      
+      &:hover,&.active {
+        transform: scaleX(2.5);
+      }
+    }
+  }
+  .az-scroll-cross-bar {
+    left: 0px;
+    right: 20px;
+    bottom: 0px;
+    height: 20px;
+    .az-scroll-bar-content {
+      top: 0px;
+      bottom: 0px;
+      &:hover,&.active {
+        transform: scaleY(2.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "main",
+  "private": true,
+  "description": "Az UI Web-side component library based on Vue 3.0 .",
+  "author": "ZhQuella <827265905@qq.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "module": "dist/elenext.esm.js",
+  "types": "dist/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspace azui run dev",
+    "start": "yarn workspace @azui/docs run dev",
+    "play": "yarn workspace @azui/play run dev",
+    "test": "yarn workspace azui run test",
+    "lint": "eslint --no-error-on-unmatched-pattern --ext .vue --ext .ts --ext .tsx packages/**/ --fix"
+  },
+  "keywords": [
+    "vue3",
+    "vue-next",
+    "az",
+    "AzUI"
+  ],
+  "files": [
+    "dist",
+    "types",
+    "index.js"
+  ],
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@types/jest": "^26.0.23",
+    "@vitejs/plugin-vue": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^2.0.0-rc.6",
+    "babel-eslint": "^10.1.0",
+    "chokidar": "^3.5.1",
+    "debug": "^4.3.1",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.0.0",
+    "eslint-plugin-jest": "^24.3.5",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "fs-extra": "^9.1.0",
+    "husky": "^6.0.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "rollup-plugin-scss": "^2.6.1",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.1.3",
+    "vite": "^2.1.5",
+    "vue-jest": "^3.0.7",
+    "vue-tsc": "^0.0.24"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && eslint --ext .js,.vue src"
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended",
+      "plugin:vue/recommended",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

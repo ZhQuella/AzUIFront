@@ -1,0 +1,44 @@
+@import "../common/col.scss";
+
+$screen-xs: 767px;
+$screen-xs-max: $screen-xs;
+
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm;
+
+$screen-md: 992px;
+$screen-md-min: $screen-md;
+
+$screen-lg: 1200px;
+$screen-lg-min: $screen-lg;
+
+$screen-xl: 1400px;
+$screen-xl-min: $screen-xl;
+
+.az-col {
+  position: relative;
+  max-width: 100%;
+  min-height: 1px;
+}
+
+@include grid-columns();
+
+@media (max-width: $screen-xs-max) {
+  @include grid-columns(-xs);
+}
+
+@media (min-width: $screen-sm-min) {
+  @include grid-columns(-sm);
+}
+
+@media (min-width: $screen-md-min) {
+  @include grid-columns(-md);
+}
+
+@media (min-width: $screen-lg-min) {
+  @include grid-columns(-lg);
+}
+
+@media (min-width: $screen-xl-min) {
+  @include grid-columns(-xl);
+}
