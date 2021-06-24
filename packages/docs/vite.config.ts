@@ -34,6 +34,7 @@ const containers = ["success", "warning", "info", "error"].map((type) => {
 });
 
 export default defineConfig({
+  base: "/AzUIFront/"
   server: {
     port: 3000,
   },
