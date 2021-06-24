@@ -48,9 +48,7 @@ const createBaseConfig = () => {
         css: true
       }),
       scss({
-        output: process.env.NODE_ENV === 'development'?
-                  './dist/lib/index.css':
-                  false,
+        output: './dist/lib/index.css',
         watch: ["./src/styles"]
       })
     ],
