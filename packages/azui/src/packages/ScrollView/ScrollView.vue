@@ -25,7 +25,7 @@
             @mousedown="onScrollBarMouseDown('cross',$event)"
             :class="{
               active: mouseDownConfig.type === 'cross'
-            }">></div>
+            }"></div>
       </div>
     </transition>
     <div class="az-scroll-view-content"

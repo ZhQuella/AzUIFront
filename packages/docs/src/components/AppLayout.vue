@@ -1,51 +1,7 @@
 <template>
-  <div class="demo-layout">
-    <div>
-      <div class="demo-header">
-        <div class="layout-center">
-          <div align="middle">
-            <div :flex="1">
-              <Logo />
-            </div>
-            <div>
-              <div mode="horizontal">
-                <div>
-                  <input v-model="data.primaryColor" />
-                </div>
-                <div>
-                  <a href="https://github.com/JasKang/elenext" target="__blank">GitHub</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="layout-center">
-          <div align="top" :wrap="false">
-            <div :flex="'200px'">
-              <div style="padding-top: 40px">
-                <div mode="vertical" :current-path="route.path">
-                  <template v-for="menu in menus" :key="menu.title">
-                    <div :title="menu.title">
-                      <div v-for="item in menu.items" :key="item" :path="`/${item.name.toLowerCase()}`">
-                        {{ `${item.name}-Aaron` }}
-                      </div>
-                    </div>
-                  </template>
-                </div>
-              </div>
-            </div>
-            <div :flex="1">
-              <div class="site-content">
-                <router-view />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <az-scroll-view :height="800">
+    <router-view />
+  </az-scroll-view>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
@@ -56,7 +12,6 @@ export default defineComponent({
   name: 'AppLayout',
   setup() {
     const route = useRoute()
-
 
     const data = reactive({
       primaryColor: '#409eff',
