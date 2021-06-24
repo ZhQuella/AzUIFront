@@ -1,5 +1,4 @@
 <template>
-  文档内容
   <router-view />
 </template>
 

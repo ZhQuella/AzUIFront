@@ -17,11 +17,10 @@ wrapperClass: md-button
 <template>
   <div>
     <az-button>默认按钮</az-button>
-    <az-button color="primary">主要按钮</az-button>
-    <az-button color="success">成功按钮</az-button>
-    <az-button color="info">信息按钮</az-button>
-    <az-button color="warning">警告按钮</az-button>
-    <az-button color="danger">危险按钮</az-button>
+    <az-button type="primary">主要按钮</az-button>
+    <az-button type="success">成功按钮</az-button>
+    <az-button type="warning">警告按钮</az-button>
+    <az-button type="danger">危险按钮</az-button>
   </div>
 </template>
 ```
