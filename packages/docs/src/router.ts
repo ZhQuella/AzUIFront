@@ -14,7 +14,7 @@ export const router = createRouter({
       redirect: '/button',
       children: menus.reduce((prev, item) => {
         const _routes = item.items.map(i => {
-          console.log(i.component)
+          console.log(i.name)
           return {
             path: `/${i.name.toLowerCase()}`,
             name: i.name,
