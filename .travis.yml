@@ -9,7 +9,7 @@ branches:
 
 deploy:
   provider: pages
-  local_dir: "./packages/docs/dist"
+  local_dir: ./packages/docs/dist
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
