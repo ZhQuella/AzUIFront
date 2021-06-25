@@ -6,16 +6,17 @@ export const useBarStyles = ({
   config
 }) => {
 
-  const sameStyle = computed(() => {
+  const isRenderBar = computed(() => {
+    const { content, warpInfo } = config;
     return {
-      borderRadius: size.value
+      vertical: warpInfo.offsetHeight > height.value,
+      cross: warpInfo.offsetWidth > content.offsetWidth
     }
   })
 
   const verticalStyle = computed(() => {
     return {
-      width: size.value,
-      ...sameStyle.value
+      width: size.value
     }
   })
 
@@ -31,8 +32,7 @@ export const useBarStyles = ({
   const crossStyle = computed(() => {
     return {
       height: size.value,
-      right: `${parseFloat(size.value)}px`,
-      ...sameStyle.value
+      right: `${parseFloat(size.value)}px`
     }
   })
 
@@ -53,7 +53,8 @@ export const useBarStyles = ({
 
   const containerStyle = computed(() => {
     return {
-      height: `${height.value + 17}px`
+      height: `${height.value}px`,
+      paddingBottom: isRenderBar.value.cross? "17px": "0px"
     }
   });
 
@@ -63,6 +64,7 @@ export const useBarStyles = ({
     warpStyle,
     containerStyle,
     verticalBarStyle,
-    crossBarStyle
+    crossBarStyle,
+    isRenderBar
   }
 }

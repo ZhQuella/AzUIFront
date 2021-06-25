@@ -1,26 +1,33 @@
 <template>
-  <az-scroll-view :height="800">
+  <az-scroll-view :height="height" :noresize="true">
     <router-view />
   </az-scroll-view>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import menus from '../menus'
 
 export default defineComponent({
   name: 'AppLayout',
   setup() {
-    const route = useRoute()
+    const route = useRoute();
+
+    const height = ref(0);
 
     const data = reactive({
       primaryColor: '#409eff',
+    });
+
+    onMounted(() => {
+      height.value = document.documentElement.clientHeight;
     })
 
     return {
       route,
       menus,
       data,
+      height
     }
   },
 })
