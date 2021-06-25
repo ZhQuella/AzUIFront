@@ -1,5 +1,7 @@
-import 'vite-plugin-vuedoc/style.css';
 import { createApp } from 'vue';
+
+// import "reset-css/sass/_reset.scss";
+import 'vite-plugin-vuedoc/style.css';
 
 import AzUI from 'azui';
 import 'azui/dist/lib/index.css';

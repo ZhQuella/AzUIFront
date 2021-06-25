@@ -10,12 +10,17 @@ export const useInit = ({
 
   const scrollViewContentRef = ref<HTMLElement>();
   const clientRef = ref<HTMLElement>();
+  const contentRef = ref<HTMLElement>();
 
   const resetConfig =() => {
     config.warpInfo.offsetHeight = scrollViewContentRef.value?.offsetHeight;
     config.warpInfo = {
       offsetHeight: scrollViewContentRef.value?.offsetHeight || 0,
       offsetWidth: scrollViewContentRef.value?.offsetWidth || 0
+    }
+    config.content = {
+      offsetHeight: contentRef.value?.offsetHeight || 0,
+      offsetWidth: contentRef.value?.offsetWidth || 0
     }
     config.clientWidth = clientRef.value?.clientWidth;
   }
@@ -38,6 +43,7 @@ export const useInit = ({
   });
 
   return {
+    contentRef,
     scrollViewContentRef,
     clientRef
   }

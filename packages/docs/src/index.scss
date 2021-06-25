@@ -1,12 +1,13 @@
 body {
-  line-height: 1.5;
-}
-
-#app {
-  height: 100%;
+  margin: 0px;
 }
 
 .vuedoc {
+
+  .markdownIt-Anchor {
+    display: none !important;
+  }
+
   > h2 {
     margin: 55px 0 20px;
   }
@@ -45,7 +46,7 @@ body {
   }
   .tip {
     padding: 8px 16px;
-    border-left: 5px solid #409eff;
+    border-left: 5px solid #00b067;
     background-color: #ecf5ff;
     border-radius: 4px;
     margin: 20px 0;
@@ -57,10 +58,10 @@ body {
 }
 .md-grid {
   margin-bottom: 20px;
-  .el-row + .el-row {
+  .az-row + .az-row {
     margin-top: 10px;
   }
-  .el-col {
+  .az-col {
     text-align: center;
     > div {
       min-height: 36px;
@@ -76,39 +77,39 @@ body {
   }
 }
 .md-button {
-  .el-row + .el-row {
+  .az-row + .az-row {
     margin-top: 10px;
   }
-  .el-button-group + .el-button-group {
+  .az-button-group + .az-button-group {
     margin-left: 10px;
   }
 }
 .md-link {
-  .el-row + .el-row {
+  .az-row + .az-row {
     margin-top: 10px;
   }
-  .el-row {
-    > .el-link {
+  .az-row {
+    > .az-link {
       margin-left: 10px;
     }
   }
 }
 .md-layout {
-  .el-header,
-  .el-footer {
+  .az-header,
+  .az-footer {
     background-color: #b3c0d1;
     color: #333;
     text-align: center;
     line-height: 50px;
   }
 
-  .el-aside {
+  .az-aside {
     background-color: #d3dce6;
     color: #333;
     text-align: center;
   }
 
-  .el-main {
+  .az-main {
     background-color: #e9eef3;
     color: #333;
     text-align: center;
@@ -117,7 +118,7 @@ body {
 }
 
 .md-icon {
-  .el-button + .el-button {
+  .az-button + .az-button {
     margin-left: 10px;
   }
 }

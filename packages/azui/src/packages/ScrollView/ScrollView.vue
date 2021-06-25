@@ -7,7 +7,8 @@
     <transition name="az-fade">
       <div class="az-scroll-bar az-scroll-vertical-bar"
           :style="verticalStyle"
-          v-show="isShowBar">
+          v-show="isShowBar"
+          v-if="isRenderBar.vertical">
         <div class="az-scroll-bar-content"
             :style="verticalBarStyle"
             @mousedown="onScrollBarMouseDown('vertical',$event)"
@@ -19,7 +20,8 @@
     <transition name="az-fade">
       <div class="az-scroll-bar az-scroll-cross-bar"
           :style="crossStyle"
-          v-show="isShowBar">
+          v-show="isShowBar"
+          v-if="isRenderBar.cross">
         <div class="az-scroll-bar-content"
             :style="crossBarStyle"
             @mousedown="onScrollBarMouseDown('cross',$event)"
@@ -31,7 +33,7 @@
     <div class="az-scroll-view-content"
         :style="containerStyle"
         @scroll="onWarpScroll"
-        ref="content">
+        ref="contentRef">
       <component class="az-scroll__view"
                 ref="scrollViewContentRef"
                 :is="tag">
@@ -75,6 +77,10 @@ const AzScrollView = defineComponent({
         offsetHeight: 0,
         offsetWidth: 0
       },
+      content: {
+        offsetHeight: 0,
+        offsetWidth: 0
+      },
       clientWidth: 0,
       scrollConfig: {
         left: 0,
@@ -86,6 +92,7 @@ const AzScrollView = defineComponent({
     const { 
       scrollViewContentRef,
       clientRef,
+      contentRef
     } = useInit({
       config,
       noresize
@@ -97,9 +104,8 @@ const AzScrollView = defineComponent({
       onWarpScroll, 
       isShowBar,
       onScrollBarMouseDown,
-      content,
       mouseDownConfig
-    } = useEvent({config, showBar, height, emit});
+    } = useEvent({config, showBar, height, emit, contentRef });
 
     const {
       verticalStyle,
@@ -107,7 +113,8 @@ const AzScrollView = defineComponent({
       warpStyle,
       containerStyle,
       verticalBarStyle,
-      crossBarStyle
+      crossBarStyle,
+      isRenderBar
     } = useBarStyles({
       size,
       height,
@@ -123,14 +130,14 @@ const AzScrollView = defineComponent({
       containerStyle,
       verticalBarStyle,
       crossBarStyle,
-
+      isRenderBar,
       onWarpScroll,
       onMouseenter,
       onMouseleave,
       onScrollBarMouseDown,
       isShowBar,
-      content,
-      mouseDownConfig
+      mouseDownConfig,
+      contentRef
     }
   }
 });
