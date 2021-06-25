@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import AppLayout from './components/AppLayout.vue'
+import AppLayout from './pages/AppLayout.vue'
+import Index from "./pages/Index.vue";
 import menus from './menus'
 
 export const router = createRouter({
   history: createWebHistory(),
   strict: true,
   routes: [
-    { path: '/'},
+    { 
+      path: '/',
+      name: 'Index',
+      component: Index,
+    },
     {
       path: '/component',
       name: 'Layout',
