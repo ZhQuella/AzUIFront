@@ -1,10 +1,7 @@
 <template>
-  <az-button :disabled="flag"
-              @click="onButtonClick"
-              circle
-              size="big">
-    <b class="az-icon-loading"></b>
-  </az-button>
+  <az-scroll-view :height="600" :noresize="true">
+    <h3 v-for="(item,i) of 100" :key="i" class="content">{{item}}</h3>
+  </az-scroll-view>
 </template>
 
 <script lang="ts">
@@ -33,6 +30,6 @@ export default defineComponent({
   padding: 0px;
 }
 .content {
-  width: 20000px;
+  width: 1273px;
 }
 </style>

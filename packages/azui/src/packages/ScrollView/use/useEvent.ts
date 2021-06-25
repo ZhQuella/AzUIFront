@@ -1,4 +1,4 @@
-import { computed, reactive, ref } from "vue";
+import { computed, reactive } from "vue";
 
 import { on, off } from "../../../utils/dom";
 
@@ -8,10 +8,9 @@ export const useEvent = ({
   config,
   showBar,
   height,
-  emit
+  emit,
+  contentRef
 }) => {
-
-  const content = ref<HTMLElement>();
 
   const onMouseenter = () => {
     config.isEnterWarp = true;
@@ -52,7 +51,7 @@ export const useEvent = ({
     position = Math.max(position, 0);
     position = Math.min(contentOffset - mouseDownConfig[BAR_MAP[type].content], position);
     config.scrollConfig[BAR_MAP[type].direction] = position;
-    Reflect.set(content?.value || {}, BAR_MAP[type].scroll, position / proportion);
+    Reflect.set(contentRef?.value || {}, BAR_MAP[type].scroll, position / proportion);
   }
 
   const mouseUpDocumentHandler = (event) => {
@@ -84,7 +83,6 @@ export const useEvent = ({
     isShowBar,
     onWarpScroll,
     onScrollBarMouseDown,
-    content,
     mouseDownConfig
   }
 

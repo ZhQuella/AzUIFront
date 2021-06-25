@@ -21,6 +21,7 @@ const containers = ["success", "warning", "info", "error"].map((type) => {
       render: function (tokens: any[], idx: number) {
         const str = tokens[idx].info.trim();
         const m = [str, str === type ? "" : str.substr(type.length + 1)];
+        console.log(str, m);
         if (tokens[idx].nesting === 1) {
           // opening tag
           return `<p>${type}--${m[1]}`;

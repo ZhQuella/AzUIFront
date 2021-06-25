@@ -22,7 +22,6 @@
     .az-scroll-bar-content {
       position: absolute;
       background-color: $--scroll-bar-color;
-      border-radius: 20px;
       cursor: pointer;
       transition: transform $--transition-time;
     }
