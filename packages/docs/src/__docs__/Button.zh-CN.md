@@ -3,11 +3,15 @@ title: Button
 wrapperClass: md-button
 ---
 
-# Button 按钮
+<html>
+  <h1>按钮颜色</h1>
+</html>
 
 常用的操作按钮
 
-## 按钮颜色
+<html>
+  <h3>按钮颜色</h3>
+</html>
 
 使用`color`属性来定义 Button 的颜色
 
@@ -25,7 +29,9 @@ wrapperClass: md-button
 </template>
 ```
 
-## Button Props
+<html>
+  <h3>Button Props</h3>
+</html>
 
 | 参数        | 说明           | 类型                                                             | 默认值 |
 | ----------- | -------------- | ---------------------------------------------------------------- | ------ |
