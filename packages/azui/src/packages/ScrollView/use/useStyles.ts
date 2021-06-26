@@ -10,7 +10,7 @@ export const useBarStyles = ({
     const { content, warpInfo } = config;
     return {
       vertical: warpInfo.offsetHeight > height.value,
-      cross: warpInfo.offsetWidth > content.offsetWidth
+      cross: warpInfo.offsetWidth + 17 > content.offsetWidth
     }
   })
 

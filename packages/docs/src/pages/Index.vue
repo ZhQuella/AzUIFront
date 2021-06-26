@@ -1,6 +1,13 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <router-link to="/component">文档</router-link>
+  <div class="index-container">
+    <div class="index-banner">
+      <h1 v-for="(item) of 100" :key="item">{{item}}</h1>
+      <div class="index-banner">
+        <img src="../assets/image/home_banner.png" alt="azui banner">
+      </div>
+      <az-button>aaa</az-button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -10,13 +17,10 @@ export default defineComponent({
   name: 'AppLayout',
   setup() {
     
-    return {
-      msg: "AzUi"
-    }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-
+@import "../style/pages/IndexPageStyle.scss";
 </style>

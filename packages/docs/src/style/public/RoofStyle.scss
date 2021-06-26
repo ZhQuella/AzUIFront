@@ -1,0 +1,20 @@
+.az-roof {
+  border-bottom: 1px solid #ededed;
+  min-width: 1024px;
+  margin: 0px auto;
+  box-sizing: border-box;
+  .logo-warp {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #00b067;
+    .logo {
+      width: 60px;
+    }
+    .title {
+      margin: 0px;
+      padding-top: 10px;
+      font-size: 38px;
+    }
+  }
+}

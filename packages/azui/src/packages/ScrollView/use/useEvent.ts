@@ -28,7 +28,8 @@ export const useEvent = ({
     if(config.isMouseDown) return;
     const proportionY = Math.min(height.value / config.warpInfo.offsetHeight,1);
     const proportionX = Math.min(config.clientWidth / config.warpInfo.offsetWidth,1);
-    config.scrollConfig.left = event.target.scrollLeft * proportionX;
+    const num = event.target.scrollLeft < 17?0:17;
+    config.scrollConfig.left = (event.target.scrollLeft + num) * proportionX;
     config.scrollConfig.top = event.target.scrollTop * proportionY;
     emit("scroll", event);
   }
