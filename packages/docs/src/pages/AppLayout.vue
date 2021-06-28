@@ -1,7 +1,16 @@
 <template>
-  <az-scroll-view :height="height" :noresize="true">
-    <router-view />
-  </az-scroll-view>
+  <az-aside width="260px">
+    <az-scroll-view :height="height" :noresize="true">
+      <h1 v-for="item of 100" :key="item ">{{ item }}</h1>
+    </az-scroll-view>
+  </az-aside>
+  <az-container>
+    <az-scroll-view :height="height" :noresize="true">
+      <div>
+        <router-view />
+      </div>
+    </az-scroll-view>
+  </az-container>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
