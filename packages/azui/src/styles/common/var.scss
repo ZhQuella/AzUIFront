@@ -11,6 +11,7 @@ $--border-color-base: #dcdfe6 !default;
 $--color-text-placeholder: #c0c4cc !default;
 $--color-text-regular: #606266 !default;
 $--color-border-color-lighter:#ebeef5 !default;
+$--color-text-secondary: #909399 !default;
 
 $--color-danger-disabled: #fab6b6 !default;
 $--color-danger-hover: #ff7875 !default;
@@ -24,7 +25,8 @@ $--color-success-disabled: #b3e19d;
 $--color-success-hover: #85ce61;
 $--color-success: #67c23a;
 
-$--scroll-bar-color: rgba(144,147,153,.3);
+$--scroll-bar-color: rgba(144,147,153,.3) !default;
+$--scrollbar-hover-color: rgba($--color-text-secondary, .5) !default;
 
 //  font
 $--font-weight-normal: 400 !default;
