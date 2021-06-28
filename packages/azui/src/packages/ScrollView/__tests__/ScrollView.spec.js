@@ -17,7 +17,7 @@ describe("ScrollView Content", () => {
       },
     });
     await nextTick();
-    expect(wrapper.findComponent({ name: "AzScrollView" }).find('.az-scroll-view-content').text()).toContain(content);
+    expect(wrapper.findComponent({ name: "AzScrollView" }).find('.az-scrollbar__view').text()).toContain(content);
     done();
   });
 
@@ -33,12 +33,8 @@ describe("ScrollView Prop", () => {
       }
     });
     await nextTick();
-    expect(wrapper.find(".az-scroll-vertical-bar").element.style.width).toEqual(size);
-    expect(wrapper.find(".az-scroll-vertical-bar").element.style.borderRadius).toEqual(size);
-
-    expect(wrapper.find(".az-scroll-cross-bar").element.style.height).toEqual(size);
-    expect(wrapper.find(".az-scroll-cross-bar").element.style.right).toEqual(size);
-    expect(wrapper.find(".az-scroll-cross-bar").element.style.borderRadius).toEqual(size);
+    expect(wrapper.find(".is-vertical").find(".az-scrollbar__thumb").element.style.width).toEqual(size);
+    expect(wrapper.find(".is-horizontal").find(".az-scrollbar__thumb").element.style.height).toEqual(size);
     done();
   });
 
@@ -52,7 +48,7 @@ describe("ScrollView Prop", () => {
       }
     })
     expect(
-      wrapper.find('.az-scroll__view').element instanceof HTMLUListElement
+      wrapper.find('.az-scrollbar__view').element instanceof HTMLUListElement
     ).toBeTruthy()
   });
 
