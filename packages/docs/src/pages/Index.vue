@@ -1,22 +1,30 @@
 <template>
-  <div class="index-container">
-    <div class="index-banner">
-      <h1 v-for="(item) of 100" :key="item">{{item}}</h1>
+  <az-scroll-view :height="height"
+                  :noresize="true">
+    {{ height }}
+    <div class="index-container">
       <div class="index-banner">
         <img src="../assets/image/home_banner.png" alt="azui banner">
       </div>
-      <az-button>aaa</az-button>
+      <div class="index-banner">
+        <img src="../assets/image/home_banner.png" alt="azui banner">
+      </div>
     </div>
-  </div>
+  </az-scroll-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useHeight } from "../public/use/useHeight";
 
 export default defineComponent({
   name: 'AppLayout',
   setup() {
-    
+    const { height } = useHeight();
+
+    return {
+      height
+    }
   }
 })
 </script>

@@ -6,7 +6,7 @@ export const useHeight = () => {
   const height = ref(0);
 
   const resize = function(){
-    height.value = document.documentElement.clientHeight;
+    height.value = document.documentElement.clientHeight - 60;
   }
 
   onMounted(() => {

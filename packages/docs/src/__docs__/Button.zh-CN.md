@@ -25,6 +25,24 @@ wrapperClass: md-button
 </template>
 ```
 
+### 按钮颜色
+
+使用`color`属性来定义 Button 的颜色
+
+`color`: 'primary' | 'success' | 'info' | 'warning' | 'danger'
+
+```vue demo slot#button <div>123</div>
+<template>
+  <div>
+    <az-button>默认按钮</az-button>
+    <az-button type="primary">主要按钮</az-button>
+    <az-button type="success">成功按钮</az-button>
+    <az-button type="warning">警告按钮</az-button>
+    <az-button type="danger">危险按钮</az-button>
+  </div>
+</template>
+```
+
 <html>
   <h3>Button Props</h3>
 </html>

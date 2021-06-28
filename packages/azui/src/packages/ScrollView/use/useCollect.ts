@@ -15,6 +15,7 @@ export const useScrollCollect = ({
 
   const update = () => {
     if (!wrap.value) return;
+    //  ! 这里有bug需要修复
     const heightPercentage = (wrap.value.clientHeight * 100) / wrap.value.scrollHeight;
     const widthPercentage = (wrap.value.clientWidth * 100) / wrap.value.scrollWidth;
     sizeConfig.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';

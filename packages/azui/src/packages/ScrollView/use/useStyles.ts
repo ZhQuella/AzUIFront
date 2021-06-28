@@ -34,13 +34,18 @@ export const useBarStyles = ({
   area
 }) => {
 
-  const thumbStyle = computed(() => renderThumbStyle({
-    size: size.value,
-    position: position.value,
-    type: type.value,
-    bar,
-    area
-  }))
+  const thumbStyle = computed(() => {
+    console.log(size.value)
+    return renderThumbStyle({
+      size: size.value,
+      position: position.value,
+      type: type.value,
+      bar,
+      area
+    })
+  });
+
+
   return {
     thumbStyle
   }

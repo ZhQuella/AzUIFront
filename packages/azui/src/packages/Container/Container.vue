@@ -47,7 +47,7 @@ const AzContainer = defineComponent({
     provide(layoutInjectKey, {
       setAside: () => {
         data.hasAside = true
-      },
+      }
     });
 
     return {
