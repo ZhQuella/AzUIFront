@@ -5,7 +5,6 @@
   min-height: 0;
 
   &.is-horizontal {
-    flex-direction: column;
     flex-direction: row;
     > .az-container {
       overflow-x: hidden;

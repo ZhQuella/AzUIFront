@@ -1,12 +1,38 @@
 <template>
-  <router-view />
+  <az-main>
+    <az-header>
+      <roof>
+        <template v-slot:menu>
+          <router-link to="/component">文档</router-link>
+        </template>
+      </roof>
+    </az-header>
+    <az-container>
+      <router-view />
+    </az-container>
+  </az-main>
 </template>
 
 <script lang="ts">
+
 import { defineComponent } from 'vue';
+
+
+import Roof from "./compoents/Public/Roof.vue";
 
 export default defineComponent({
   name: 'App',
-  components: {}
+  components: {
+    Roof
+  },
+  setup(){
+
+    return {
+    }
+  }
 })
 </script>
+
+<style lang="scss">
+@import "./style/public/AppStyle.scss";
+</style>

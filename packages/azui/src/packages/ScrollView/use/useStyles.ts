@@ -1,70 +1,52 @@
 import { computed } from "vue";
 
-export const useBarStyles = ({
-  size,
-  height,
-  config
+export const useScrollStyles = ({
+  height
 }) => {
 
-  const isRenderBar = computed(() => {
-    const { content, warpInfo } = config;
-    return {
-      vertical: warpInfo.offsetHeight > height.value,
-      cross: warpInfo.offsetWidth > content.offsetWidth
-    }
-  })
-
-  const verticalStyle = computed(() => {
-    return {
-      width: size.value
-    }
-  })
-
-  const verticalBarStyle = computed(() => {
-    let proportion = height.value / config.warpInfo.offsetHeight;
-    proportion = Math.min(proportion, 1);
-    return {
-      height: `${100 * proportion}%`,
-      top: `${config.scrollConfig.top}px`
-    }
-  })
-
-  const crossStyle = computed(() => {
-    return {
-      height: size.value,
-      right: `${parseFloat(size.value)}px`
-    }
-  })
-
-  const crossBarStyle = computed(() => {
-    let proportion = config.clientWidth / config.warpInfo.offsetWidth;
-    proportion = Math.min(proportion, 1);
-    return {
-      width: `${100 * proportion}%`,
-      left: `${config.scrollConfig.left}px`
-    }
-  })
-
-  const warpStyle = computed(() => {
+  const scrollStyles = computed(() => {
     return {
       height: `${height.value}px`
     }
   });
 
-  const containerStyle = computed(() => {
-    return {
-      height: `${height.value}px`,
-      paddingBottom: isRenderBar.value.cross? "17px": "0px"
-    }
-  });
-
   return {
-    verticalStyle,
-    crossStyle,
-    warpStyle,
-    containerStyle,
-    verticalBarStyle,
-    crossBarStyle,
-    isRenderBar
+    scrollStyles
   }
 }
+
+export const renderThumbStyle = ({ position, size, type, bar, area }) => {
+  const style = {} as any;
+  const translate = `translate${bar.axis}(${ position }%)`;
+  style[bar.size] = size;
+  style.transform = translate;
+  style.msTransform = translate;
+  style.webkitTransform = translate;
+  style[type === 'vertical'? 'width': 'height'] = area.value;
+  return style;
+}
+
+export const useBarStyles = ({
+  size,
+  position,
+  type,
+  bar,
+  area
+}) => {
+
+  const thumbStyle = computed(() => {
+    return renderThumbStyle({
+      size: size.value,
+      position: position.value,
+      type: type.value,
+      bar,
+      area
+    })
+  });
+
+
+  return {
+    thumbStyle
+  }
+}
+

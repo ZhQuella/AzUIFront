@@ -1,143 +1,102 @@
 <template>
-  <div class="az-scroll-view__warp"
-      @mouseenter="onMouseenter"
-      @mouseleave="onMouseleave"
-      :style="warpStyle"
-      ref="clientRef">
-    <transition name="az-fade">
-      <div class="az-scroll-bar az-scroll-vertical-bar"
-          :style="verticalStyle"
-          v-show="isShowBar"
-          v-if="isRenderBar.vertical">
-        <div class="az-scroll-bar-content"
-            :style="verticalBarStyle"
-            @mousedown="onScrollBarMouseDown('vertical',$event)"
-            :class="{
-              active: mouseDownConfig.type === 'vertical'
-            }"></div>
-      </div>
-    </transition>
-    <transition name="az-fade">
-      <div class="az-scroll-bar az-scroll-cross-bar"
-          :style="crossStyle"
-          v-show="isShowBar"
-          v-if="isRenderBar.cross">
-        <div class="az-scroll-bar-content"
-            :style="crossBarStyle"
-            @mousedown="onScrollBarMouseDown('cross',$event)"
-            :class="{
-              active: mouseDownConfig.type === 'cross'
-            }"></div>
-      </div>
-    </transition>
-    <div class="az-scroll-view-content"
-        :style="containerStyle"
-        @scroll="onWarpScroll"
-        ref="contentRef">
-      <component class="az-scroll__view"
-                ref="scrollViewContentRef"
-                :is="tag">
-        <slot />
+  <div ref="scrollbar"
+      class="az-scrollbar">
+    <div ref="wrap"
+          class="az-scrollbar__wrap"
+          :class="scrollClass"
+          :style="scrollStyles"
+          @scroll="handleScroll">
+      <component :is="tag"
+                  class="az-scrollbar__view">
+        <slot></slot>
       </component>
     </div>
+    <template v-if="!native">
+      <az-bar type="vertical"
+              :size="sizeConfig.sizeHeight"
+              :position="positionConfig.moveY"
+              :area="size"></az-bar>
+      <az-bar type="horizontal"
+              :size="sizeConfig.sizeWidth"
+              :position="positionConfig.moveX"
+              :area="size"></az-bar>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import { App, defineComponent, toRefs, reactive } from "vue";
+import { App, defineComponent, toRefs, provide } from "vue";
 import vptypes from 'vptypes';
 
-import { useBarStyles } from "./use/useStyles";
-import { useEvent } from "./use/useEvent";
-import { useInit } from "./use/useInit";
+import AzBar from "./Bar.vue";
+
+import { useScrollEvent } from "./use/useEvent";
+import { useScrollStyles } from "./use/useStyles";
+import { useScrollClasses } from "./use/useClasses";
+import { useScrollCollect } from "./use/useCollect";
 
 const AzScrollView = defineComponent({
   name: "AzScrollView",
+  components: {
+    AzBar
+  },
   props: {
     size: vptypes.string().def("10px"),
     showBar: vptypes.oneOfType([vptypes.bool()]).def(true),
     height: vptypes.oneOfType([vptypes.number()]).def(600),
-    noresize: vptypes.oneOfType([vptypes.bool()]).def(false),
-    tag: vptypes.string().def("div")
+    noresize: vptypes.oneOfType([vptypes.bool()]).def(true),
+    tag: vptypes.string().def("div"),
+    native: vptypes.oneOfType([vptypes.bool()]).def(false)
   },
   emit:["scroll"],
-  setup(props, { emit }){
+  setup(props, { emit, slots }){
+    
     const {
-      size,
-      showBar,
       height,
+      native,
       noresize
     } = toRefs(props);
 
-    const config = reactive({
-      isEnterWarp: false,
-      barWidth: 0,
-      barHeight: 0,
-      warpInfo: {
-        offsetHeight: 0,
-        offsetWidth: 0
-      },
-      content: {
-        offsetHeight: 0,
-        offsetWidth: 0
-      },
-      clientWidth: 0,
-      scrollConfig: {
-        left: 0,
-        top: 0
-      },
-      isMouseDown: false
+    const { 
+      scrollbar,
+      wrap,
+      resize,
+      sizeConfig,
+      update
+    } = useScrollCollect({ slots });
+
+    const { scrollStyles } = useScrollStyles({
+      height
+    });
+
+    const { scrollClass } = useScrollClasses({
+      native
     });
 
     const { 
-      scrollViewContentRef,
-      clientRef,
-      contentRef
-    } = useInit({
-      config,
-      noresize
+      handleScroll,
+      positionConfig
+    } = useScrollEvent({
+      update,
+      native,
+      noresize,
+      resize,
+      wrap,
+      emit
     });
 
-    const { 
-      onMouseenter, 
-      onMouseleave, 
-      onWarpScroll, 
-      isShowBar,
-      onScrollBarMouseDown,
-      mouseDownConfig
-    } = useEvent({config, showBar, height, emit, contentRef });
+    provide('scrollbar', scrollbar);
+    provide('scrollbar-wrap', wrap);
 
-    const {
-      verticalStyle,
-      crossStyle,
-      warpStyle,
-      containerStyle,
-      verticalBarStyle,
-      crossBarStyle,
-      isRenderBar
-    } = useBarStyles({
-      size,
-      height,
-      config
-    });
-    
     return {
-      scrollViewContentRef,
-      clientRef,
-      verticalStyle,
-      crossStyle,
-      warpStyle,
-      containerStyle,
-      verticalBarStyle,
-      crossBarStyle,
-      isRenderBar,
-      onWarpScroll,
-      onMouseenter,
-      onMouseleave,
-      onScrollBarMouseDown,
-      isShowBar,
-      mouseDownConfig,
-      contentRef
+      handleScroll,
+      scrollStyles,
+      scrollClass,
+      sizeConfig,
+      scrollbar,
+      wrap,
+      resize,
+      positionConfig
     }
   }
 });

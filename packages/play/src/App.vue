@@ -13,7 +13,6 @@ export default defineComponent({
     let flag = ref(false);
 
     function onButtonClick (){
-      console.log(111)
       flag.value = true;
     }
     return {

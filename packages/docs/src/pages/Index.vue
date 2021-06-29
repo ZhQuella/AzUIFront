@@ -1,22 +1,30 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <router-link to="/component">文档</router-link>
+  <az-scroll-view :height="height"
+                  :noresize="false">
+    <div class="index-container">
+      <div class="index-banner">
+        <img src="../assets/image/home_banner.png" alt="azui banner">
+      </div>
+    </div>
+  </az-scroll-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useHeight } from "../public/use/useHeight";
 
 export default defineComponent({
   name: 'AppLayout',
   setup() {
-    
+    const { height } = useHeight();
+
     return {
-      msg: "AzUi"
+      height
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-
+@import "../style/pages/IndexPageStyle.scss";
 </style>
