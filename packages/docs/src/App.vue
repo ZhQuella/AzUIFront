@@ -3,7 +3,7 @@
     <az-header>
       <roof>
         <template v-slot:menu>
-          
+          <router-link to="/component">文档</router-link>
         </template>
       </roof>
     </az-header>

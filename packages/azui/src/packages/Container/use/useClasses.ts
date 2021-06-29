@@ -10,7 +10,6 @@ export const useContainerClasses = ({
   });
 
   return computed(() => {
-    console.log(data.hasAside);
     return {
       'is-horizontal': directionClass?.value === 'horizontal' || data.hasAside
     }

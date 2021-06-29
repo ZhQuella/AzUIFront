@@ -44,7 +44,7 @@ const AzScrollView = defineComponent({
     size: vptypes.string().def("10px"),
     showBar: vptypes.oneOfType([vptypes.bool()]).def(true),
     height: vptypes.oneOfType([vptypes.number()]).def(600),
-    noresize: vptypes.oneOfType([vptypes.bool()]).def(false),
+    noresize: vptypes.oneOfType([vptypes.bool()]).def(true),
     tag: vptypes.string().def("div"),
     native: vptypes.oneOfType([vptypes.bool()]).def(false)
   },

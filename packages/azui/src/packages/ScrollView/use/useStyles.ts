@@ -35,7 +35,6 @@ export const useBarStyles = ({
 }) => {
 
   const thumbStyle = computed(() => {
-    console.log(size.value)
     return renderThumbStyle({
       size: size.value,
       position: position.value,

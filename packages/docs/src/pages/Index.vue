@@ -1,11 +1,7 @@
 <template>
   <az-scroll-view :height="height"
-                  :noresize="true">
-    {{ height }}
+                  :noresize="false">
     <div class="index-container">
-      <div class="index-banner">
-        <img src="../assets/image/home_banner.png" alt="azui banner">
-      </div>
       <div class="index-banner">
         <img src="../assets/image/home_banner.png" alt="azui banner">
       </div>

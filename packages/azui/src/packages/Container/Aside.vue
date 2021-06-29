@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { App, defineComponent, inject } from 'vue';
+import { App, defineComponent, inject, onBeforeUnmount } from 'vue';
 
 import vptypes from 'vptypes';
 import { layoutInjectKey } from "./type";
@@ -19,6 +19,10 @@ const AzAside = defineComponent({
   setup () {
     const layout = inject(layoutInjectKey);
     layout?.setAside();
+
+    onBeforeUnmount(() => {
+      layout?.removeAside();
+    });
   }
 })
 
