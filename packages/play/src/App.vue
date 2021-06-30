@@ -1,7 +1,5 @@
 <template>
-  <az-scroll-view :height="600" :noresize="true">
-    <h3 v-for="(item,i) of 100" :key="i" class="content">{{item}}</h3>
-  </az-scroll-view>
+  <az-menu></az-menu>
 </template>
 
 <script lang="ts">

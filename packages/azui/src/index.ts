@@ -7,6 +7,7 @@ import { AzRow } from "./packages/Row";
 import { AzCol } from "./packages/Col";
 import { AzContainer, AzAside, AzFooter, AzHeader, AzMain } from "./packages/Container";
 import { AzScrollView } from "./packages/ScrollView";
+import { AzMenu } from "./packages/Menu";
 
 const components: Component[] = [
   AzButton,
@@ -18,7 +19,8 @@ const components: Component[] = [
   AzFooter,
   AzHeader, 
   AzMain,
-  AzScrollView
+  AzScrollView,
+  AzMenu
 ];
 
 const install = (app: App) => {
@@ -50,7 +52,8 @@ export {
   AzFooter,
   AzHeader, 
   AzMain,
-  AzScrollView
+  AzScrollView,
+  AzMenu
 };
 
 export default AzUI;
